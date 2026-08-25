@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 702.91 725.95"><defs><style>.ax {
+        stroke-width: 2px;
+      }
+
+      .ax, .ay, .az, .ba, .bb, .bc, .bd, .be, .bf, .bg, .bh, .bi, .bj, .bk, .bl, .bm, .bn, .bo, .bp, .bq, .br, .bs, .bt, .bu, .bv, .bw, .bx, .by, .bz {
+        stroke-miterlimit: 10;
+      }
+
+      .ax, .ay, .az, .bb, .bc, .bd, .bf, .bg, .bi, .bj, .bk, .bl, .bm, .bn, .bo, .bp, .bt, .bv, .bw, .bx, .by {
+        stroke: #292423;
+      }
+
+      .ax, .az, .bb, .bc, .bd, .be, .bf, .bg, .ca, .bh, .bi, .bm, .bo, .cb, .bq, .br, .bs, .bt, .bv, .bz {
+        fill: none;
+      }
+
+      .ay {
+        stroke-width: .45px;
+      }
+
+      .ay, .bk {
+        fill: #bbb5b2;
+      }
+
+      .az {
+        stroke-dasharray: 0 0 3.82 3.82;
+      }
+
+      .az, .bb, .bc, .bd, .bf, .bi, .bq, .bs, .bt, .bv {
+        stroke-linecap: round;
+      }
+
+      .az, .bb, .bc, .bd, .bf, .bt, .bv {
+        stroke-width: .5px;
+      }
+
+      .ba {
+        fill: #fff;
+        stroke: #000;
+      }
+
+      .bb {
+        stroke-dasharray: 0 3.97;
+      }
+
+      .bc {
+        stroke-dasharray: 0 0 4.03 4.03;
+      }
+
+      .bd {
+        stroke-dasharray: 0 0 3.32 3.32;
+      }
+
+      .cc {
+        fill: #292423;
+        font-family: D-DIN, D-DIN;
+        font-size: 18.05px;
+      }
+
+      .be, .bh, .bq, .br, .bs {
+        stroke: #292423;
+      }
+
+      .be, .bi, .bj, .bk, .bl, .bm, .bn, .bo, .bp, .br, .bu, .bx, .by, .bz {
+        stroke-width: .5px;
+      }
+
+      .bf {
+        stroke-dasharray: 0 0 4.07 4.07;
+      }
+
+      .bg {
+        stroke-width: .25px;
+      }
+
+      .ca, .cd, .ce, .cf, .cg, .ch, .ci {
+        stroke-width: 0px;
+      }
+
+      .bh {
+        stroke-width: .44px;
+      }
+
+      .bi {
+        stroke-dasharray: 0 4;
+      }
+
+      .bj {
+        fill: #998e87;
+      }
+
+      .cd {
+        fill: url(#j);
+        opacity: .7;
+      }
+
+      .ce, .bu {
+        fill: #d5c2b6;
+      }
+
+      .cj {
+        clip-path: url(#af);
+      }
+
+      .bl {
+        fill: #776c66;
+      }
+
+      .bm {
+        stroke-dasharray: 0 0 3.36 3.36;
+      }
+
+      .bn, .bw, .ci {
+        fill: #292423;
+      }
+
+      .cf {
+        fill: #bbb5b2;
+      }
+
+      .cb {
+        stroke: #231f20;
+        stroke-width: .3px;
+      }
+
+      .cg {
+        fill: #e0dfde;
+      }
+
+      .bp {
+        fill: #eee6e2;
+      }
+
+      .bq {
+        stroke-dasharray: 0 0 4.23 4.23;
+      }
+
+      .bq, .bs {
+        stroke-width: .5px;
+      }
+
+      .br {
+        stroke-dasharray: 0 0 4 4;
+      }
+
+      .ch {
+        fill: #ab846d;
+      }
+
+      .bu, .bz {
+        stroke: #776c66;
+      }
+
+      .bv {
+        stroke-dasharray: 0 0 4.07 4.07;
+      }
+
+      .ck {
+        clip-path: url(#ag);
+      }
+
+      .bw {
+        stroke-width: .4px;
+      }
+
+      .bx {
+        fill: #bdb5af;
+      }
+
+      .by {
+        fill: #e4e2e0;
+      }</style><pattern id="j" data-name="Grid TARAS" x="0" y="0" width="72" height="72" patternTransform="translate(2848.67 -2704.01)" patternUnits="userSpaceOnUse" viewBox="0 0 72 72"><g><rect class="ca" width="72" height="72"/><g><line class="cb" x1="45" y1="71.75" x2="45" y2="144.25"/><line class="cb" x1="9" y1="71.75" x2="9" y2="144.25"/><line class="cb" x1="63" y1="71.75" x2="63" y2="144.25"/><line class="cb" x1="27" y1="71.75" x2="27" y2="144.25"/></g><g><line class="cb" x1="71.75" y1="9" x2="144.25" y2="9"/><line class="cb" x1="71.75" y1="45" x2="144.25" y2="45"/><line class="cb" x1="71.75" y1="27" x2="144.25" y2="27"/><line class="cb" x1="71.75" y1="63" x2="144.25" y2="63"/></g><g><line class="cb" x1="-.25" y1="9" x2="72.25" y2="9"/><line class="cb" x1="-.25" y1="45" x2="72.25" y2="45"/><line class="cb" x1="-.25" y1="27" x2="72.25" y2="27"/><line class="cb" x1="-.25" y1="63" x2="72.25" y2="63"/><line class="cb" x1="45" y1="-.25" x2="45" y2="72.25"/><line class="cb" x1="9" y1="-.25" x2="9" y2="72.25"/><line class="cb" x1="63" y1="-.25" x2="63" y2="72.25"/><line class="cb" x1="27" y1="-.25" x2="27" y2="72.25"/></g><g><line class="cb" x1="-72.25" y1="9" x2=".25" y2="9"/><line class="cb" x1="-72.25" y1="45" x2=".25" y2="45"/><line class="cb" x1="-72.25" y1="27" x2=".25" y2="27"/><line class="cb" x1="-72.25" y1="63" x2=".25" y2="63"/></g><g><line class="cb" x1="45" y1="-72.25" x2="45" y2=".25"/><line class="cb" x1="9" y1="-72.25" x2="9" y2=".25"/><line class="cb" x1="63" y1="-72.25" x2="63" y2=".25"/><line class="cb" x1="27" y1="-72.25" x2="27" y2=".25"/></g></g></pattern><clipPath id="af"><rect class="ca" x="465.94" y="131.98" width="48.23" height="69.7"/></clipPath><clipPath id="ag"><rect class="ca" x="465.94" y="131.98" width="48.23" height="69.7"/></clipPath></defs><g id="a" data-name="tlo"><rect class="ba" x="-226.34" y="-205.21" width="1920" height="1080"/></g><g id="g" data-name="rzut_7"><g><g id="h" data-name="AREAS"><g id="i" data-name="taras_inside"><polygon class="cg" points="17.63 252.47 97.39 252.63 97.42 266.7 102.48 266.7 102.48 465.3 97.42 465.3 97.42 504.61 8.61 504.61 8.57 299.39 18.06 299.39 17.63 252.47"/><polygon class="bo" points="17.63 252.47 97.39 252.63 97.42 266.7 102.48 266.7 102.48 465.3 97.42 465.3 97.42 504.61 8.61 504.61 8.57 299.39 18.06 299.39 17.63 252.47"/><polygon class="cd" points="17.63 252.47 97.39 252.63 97.42 266.7 102.48 266.7 102.48 465.3 97.42 465.3 97.42 504.61 8.61 504.61 8.57 299.39 18.06 299.39 17.63 252.47"/></g><polygon class="bp" points="123.15 20.48 123.15 266.7 111.56 266.7 111.56 465.3 123.15 465.3 123.15 694.86 368.4 694.86 368.4 540.73 601.95 539.39 601.95 493.22 629.93 493.19 629.93 365.53 679.34 365.53 679.34 233.93 602.29 233.93 602.29 218.93 543.58 218.93 543.58 233.93 457.64 233.93 458.44 20.48 123.15 20.48"/><polygon class="by" points="679.34 44.45 465.94 44.45 465.94 201.74 521.67 201.74 521.67 218.93 679.34 218.93 679.34 44.45"/><rect class="bl" x="465.94" y="20.48" width="213.39" height="16.47"/><rect class="bl" x="609.45" y="500.72" width="13.81" height="38.67"/><rect class="bl" x="465.94" y="209.24" width="48.23" height="9.69"/></g><g id="k" data-name="WINDOWS_DOORS"><g><rect class="bx" x="141.54" y="498.97" width="2.93" height="58.86" transform="translate(286.02 1056.8) rotate(180)"/><path class="bo" d="M199.7,498.97c0,31.66-24.59,57.41-55.23,58.24"/></g><g><rect class="bx" x="599.36" y="160.64" width="2.93" height="58.86"/><path class="bo" d="M544.13,219.5c0-31.66,24.59-57.41,55.23-58.24"/></g><g><rect class="bx" x="138.29" y="160.64" width="2.93" height="58.86" transform="translate(279.51 380.14) rotate(-180)"/><path class="bo" d="M196.45,219.5c0-31.66-24.59-57.41-55.23-58.24"/></g><g><rect class="bx" x="590.91" y="440.89" width="3.27" height="65.62" transform="translate(1066.25 -118.85) rotate(90)"/><path class="bo" d="M625.36,410.49c-35.29,0-64.01,27.42-64.93,61.58"/></g><g id="l" data-name="opening_window"><rect class="bx" x="97.42" y="60.64" width="25.73" height="77.9"/><rect class="bo" x="102.84" y="68.77" width="9.08" height="61.64"/><rect class="bo" x="102.84" y="60.64" width="9.08" height="8.13"/><rect class="bo" x="102.84" y="130.41" width="9.08" height="8.13"/><rect class="bo" x="104.57" y="65.64" width="2.31" height="67.91"/><line class="bo" x1="102.84" y1="65.64" x2="111.92" y2="65.64"/><line class="bo" x1="102.84" y1="133.55" x2="111.92" y2="133.55"/></g><polygon class="ch" points="641.64 441.28 671.6 458.57 671.6 423.98 641.64 441.28"/><g><rect class="bx" x="27.56" y="456.07" width="79.46" height="3.96"/><path class="be" d="M28.48,456.07c1.26-38.34,34.9-69.37,75.5-69.37.12,0,.23,0,.35,0l-.34,69.37"/></g><g id="m" data-name="balcony_window"><rect class="bx" x="102.48" y="266.7" width="9.08" height="198.6"/><line class="bo" x1="102.48" y1="307.52" x2="111.56" y2="307.52"/><rect class="bo" x="102.48" y="310.66" width="9.08" height="70.27"/><rect class="bo" x="102.48" y="380.92" width="9.08" height="7.13"/><rect class="bo" x="102.48" y="303.52" width="9.08" height="7.13"/><rect class="bo" x="102.48" y="266.7" width="9.08" height="4.54"/><rect class="bo" x="102.48" y="460.58" width="9.08" height="4.72"/><rect class="bo" x="104.21" y="307.52" width="2.31" height="76.54"/><line class="bo" x1="102.48" y1="384.06" x2="111.56" y2="384.06"/><rect class="bo" x="102.48" y="271.24" width="9.08" height="32.28"/><rect class="bo" x="104.21" y="271.24" width="2.31" height="32.28"/><line class="bo" x1="104.21" y1="388.05" x2="104.21" y2="460.58"/></g><g id="n" data-name="opening_window"><rect class="bx" x="97.42" y="550.5" width="25.76" height="77.9"/><rect class="bo" x="102.87" y="558.63" width="9.08" height="61.64"/><rect class="bo" x="102.87" y="550.5" width="9.08" height="8.13"/><rect class="bo" x="102.87" y="620.27" width="9.08" height="8.13"/><rect class="bo" x="104.61" y="555.5" width="2.31" height="67.91"/><line class="bo" x1="102.87" y1="555.5" x2="111.96" y2="555.5"/><line class="bo" x1="102.87" y1="623.41" x2="111.96" y2="623.41"/></g></g><g id="o" data-name="WALLS"><polygon class="bn" points="138.29 218.93 123.15 218.93 123.15 138.54 108.15 138.54 108.15 266.7 123.15 266.7 123.15 233.93 138.29 233.93 138.29 218.93"/><polygon class="ci" points="141.54 491.47 123.15 491.47 123.15 465.3 108.15 465.3 108.15 550.5 123.15 550.5 123.15 498.97 141.54 498.97 141.54 491.47"/><path class="bn" d="M623.26,474.7v18.52h-21.31v46.17h-268.15v-47.92h-134.6v7.5h127.1v47.92h42.1v147.97H123.15l.03-66.45h-15l-.03,81.45h277.82v-151.76h252.29v-83.4h-15ZM609.45,539.39v-38.67h13.81v38.67h-13.81Z"/><rect class="bl" x="97.42" y="465.3" width="10.73" height="85.2"/><polygon class="bl" points="108.15 709.86 97.42 709.86 97.42 628.4 108.18 628.4 108.15 709.86"/><rect class="bl" x="97.42" y="138.54" width="10.73" height="128.15"/><rect class="bl" x="97.42" y="5.48" width="10.73" height="55.16"/><rect class="bn" x="8.61" y="504.61" width="88.81" height="9.48"/><polygon class="bw" points="97.39 243.15 18.06 243.15 8.57 243.15 8.57 252.63 8.57 299.39 18.06 299.39 18.06 252.63 97.39 252.63 97.39 243.15"/><g id="p" data-name="barierka"><rect class="ci" x="9.9" y="299.53" width="1.49" height="204.98"/></g><path class="bn" d="M108.15,5.48v55.16h15V20.48h335.29v198.44H195.42v15h348.16v-15h-21.91v-63.53h-7.5v46.34h-48.23V44.45h213.39v174.47h-77.04v15h77.04v131.6h-56.08v44.77h15v-29.77h56.08V5.48H108.15ZM514.17,209.24v9.69h-48.23v-9.69h48.23ZM465.94,36.95v-16.47h213.39v16.47h-213.39Z"/></g><g id="q" data-name="FURNITURE_ADD"><g id="r" data-name="BIG_BED"><rect class="bu" x="206.45" y="23.11" width="133.14" height="147.93" rx="5.15" ry="5.15" transform="translate(546.05 194.15) rotate(-180)"/><rect class="bu" x="219.56" y="29.86" width="48.84" height="31.01" rx="7.18" ry="7.18"/><rect class="bu" x="277.8" y="29.86" width="48.84" height="31.01" rx="7.18" ry="7.18"/><g><path class="bz" d="M207.83,59.04l130.75,20.47-130.75-20.47Z"/><path class="ce" d="M207.83,59.04l130.75,20.47-130.75-20.47Z"/></g></g><rect id="s" data-name="coffee_table" class="bu" x="237.55" y="303.67" width="87.93" height="51.37" rx="4.35" ry="4.35" transform="translate(563.04 658.7) rotate(-180)"/><g id="t" data-name="sofa"><path class="bu" d="M227.99,375.29h114.16c1.39,0,2.52,1.13,2.52,2.52v38.4c0,2.2-1.78,3.98-3.98,3.98h-111.24c-2.2,0-3.98-1.78-3.98-3.98v-38.4c0-1.39,1.13-2.52,2.52-2.52Z" transform="translate(570.14 795.48) rotate(-180)"/><path class="bu" d="M210.41,438.66h149.33c1.33,0,1.99-1.61,1.05-2.54l-16.11-15.93h-119.2s-16.11,15.93-16.11,15.93c-.95.93-.28,2.54,1.05,2.54Z"/><path class="bu" d="M209.32,436.16l16.15-15.97v-40.92c0-2.2-1.78-3.98-3.98-3.98h-8.54c-3.4,0-6.16,2.76-6.16,6.16v53.65c0,1.32,1.59,1.99,2.53,1.06Z"/><path class="bu" d="M360.82,436.16l-16.15-15.97v-40.92c0-2.2,1.78-3.98,3.98-3.98h8.54c3.4,0,6.16,2.76,6.16,6.16v53.65c0,1.32-1.59,1.99-2.53,1.06Z"/></g><g><g><rect class="bu" x="461.8" y="306.59" width="28.11" height="24.27" rx="2.23" ry="2.23"/><rect class="bu" x="461.8" y="303.22" width="28.11" height="3.37" rx=".83" ry=".83"/><circle class="bu" cx="463.11" cy="301.07" r="1.31"/><circle class="bu" cx="488.6" cy="301.07" r="1.31"/></g><g><rect class="bu" x="495.01" y="339.8" width="28.11" height="24.27" rx="2.23" ry="2.23" transform="translate(157.13 861) rotate(-90)"/><rect class="bu" x="508.83" y="350.25" width="28.11" height="3.37" rx=".83" ry=".83" transform="translate(170.95 874.82) rotate(-90)"/><circle class="bu" cx="526.73" cy="364.68" r="1.31"/><circle class="bu" cx="526.73" cy="339.19" r="1.31"/></g><g><rect class="bu" x="428.39" y="340" width="28.11" height="24.27" rx="2.23" ry="2.23" transform="translate(794.58 -90.31) rotate(90)"/><rect class="bu" x="414.57" y="350.45" width="28.11" height="3.37" rx=".83" ry=".83" transform="translate(780.76 -76.49) rotate(90)"/><path class="bu" d="M424.78,340.71c.72,0,1.31-.59,1.31-1.31s-.59-1.31-1.31-1.31c-.72,0-1.31.59-1.31,1.31s.59,1.31,1.31,1.31Z"/><circle class="bu" cx="424.78" cy="364.88" r="1.31"/></g><g><rect class="bu" x="461.6" y="373.21" width="28.11" height="24.27" rx="2.23" ry="2.23" transform="translate(951.31 770.69) rotate(180)"/><rect class="bu" x="461.6" y="397.48" width="28.11" height="3.37" rx=".83" ry=".83" transform="translate(951.31 798.33) rotate(180)"/><circle class="bu" cx="488.4" cy="403.01" r="1.31"/><circle class="bu" cx="462.91" cy="403.01" r="1.31"/></g><circle class="bu" cx="475.65" cy="352.14" r="33.54"/></g><g id="u" data-name="bath_kibel"><path class="bu" d="M601.15,45.06c.68,1.49,1.23,3.2,1.64,5.12.33,1.59.57,3.32.7,5.19s1.54,27.31-13.16,27.31c-14.7,0-13.29-25.44-13.16-27.31.13-1.87.36-3.61.7-5.19.4-1.92.95-3.63,1.64-5.12h21.65Z"/><path class="bu" d="M577.86,50.18h24.92s-24.92,0-24.92,0Z"/></g><g id="v" data-name="bath_prysznic"><g><path class="bu" d="M652.18,56.83c2.51.36,4.38,2.51,4.38,5.05,0,2.82-2.28,5.1-5.1,5.1-2.82,0-5.1-2.28-5.1-5.1,0-2.56,1.9-4.73,4.44-5.06"/><path class="bu" d="M650.81,44.33v17.53s.19.47.71.47.66-.47.66-.47v-17.53s-1.37,0-1.37,0Z"/></g><g><rect class="bu" x="654.37" y="44.68" width="1.65" height="5.8" rx=".83" ry=".83" transform="translate(702.78 -607.61) rotate(90)"/><rect class="bu" x="653.98" y="44.82" width="2.43" height="1.45" transform="translate(700.74 -609.65) rotate(90)"/></g><g><rect class="bu" x="647.08" y="44.68" width="1.65" height="5.8" rx=".83" ry=".83" transform="translate(695.49 -600.32) rotate(90)"/><rect class="bu" x="646.69" y="44.82" width="2.43" height="1.45" transform="translate(693.45 -602.36) rotate(90)"/></g></g><g><rect class="bu" x="259.04" y="585.77" width="67.08" height="147.93" rx="5" ry="5" transform="translate(952.31 367.16) rotate(90)"/><rect class="bu" x="319.87" y="644.23" width="48.84" height="31.01" rx="5" ry="5" transform="translate(-315.45 1004.02) rotate(-90)"/><g><path class="bz" d="M327.37,691.57l-10.62-65.37,10.62,65.37Z"/><path class="ce" d="M327.37,691.57l-10.62-65.37,10.62,65.37Z"/></g></g><g><path class="bu" d="M182.88,643.91c0,2.1-.79,6.77.09,7.36.88.59,2.57-1.05,4.41-7.48,1.83-6.43,1.56-12.34,1.56-12.34,0,0,.28-5.91-1.56-12.34-1.83-6.43-3.52-8.07-4.41-7.48-.88.59-.09,5.26-.09,7.36,0,2.1-.74,2.68-4.73-1.03-5.14-4.76-12.47-4.82-12.47-4.82v18.3s0,18.3,0,18.3c0,0,7.33-.05,12.47-4.82,3.99-3.7,4.72-3.13,4.73-1.03Z"/><rect class="bu" x="96.29" y="621.74" width="99.84" height="40.92" rx="5" ry="5" transform="translate(-495.99 788.41) rotate(-90)"/></g><rect class="bu" x="337.92" y="597.12" width="28.62" height="28.62" rx="5" ry="5" transform="translate(963.66 259.19) rotate(90)"/></g><g id="w" data-name="FURNITURE_INC"><g><rect class="ay" x="633.28" y="233.94" width="45.63" height="50.14" transform="translate(1312.2 518.02) rotate(180)"/><g><g><path class="bt" d="M610.59,276.74c.55.37,1.1.73,1.67,1.07"/><path class="bc" d="M615.8,279.76c4.21,2.05,8.75,3.38,13.51,3.86"/><path class="bt" d="M631.31,283.77c.66.03,1.32.05,1.98.05"/></g><line class="bt" x1="633.29" y1="233.93" x2="610.59" y2="276.74"/></g></g><line class="ax" x1="619.52" y1="43.93" x2="619.52" y2="101.98"/><g><rect class="bk" x="445.47" y="383.04" width="44.57" height="267.91" transform="translate(984.74 49.24) rotate(90)"/><g id="x" data-name="kitchen_sh1"><rect class="bk" x="558.44" y="496.01" width="44.57" height="41.97" transform="translate(1097.71 -63.73) rotate(90)"/><line class="bj" x1="564.41" y1="473.51" x2="601.71" y2="494.71"/><path class="bi" d="M559.74,494.71c0-7.08,1.6-14.82,4.67-21.2h0"/></g><g id="y" data-name="kitchen_zlew"><rect class="bo" x="472" y="494.17" width="35.45" height="39.19" rx="1.1" ry="1.1" transform="translate(1003.49 24.05) rotate(90)"/><rect class="bg" x="476.55" y="495.65" width="26.34" height="32.86" rx="3.7" ry="3.7" transform="translate(1001.8 22.35) rotate(90)"/><circle class="bg" cx="489.72" cy="518.06" r="1.67"/></g><g><rect class="bk" x="524.28" y="503.8" width="24.21" height="46.7" transform="translate(1063.53 -9.24) rotate(90)"/><g><g><path class="bt" d="M513.04,515.04c0-.66.02-1.33.05-1.98"/><path class="bv" d="M513.47,509c.69-4.79,2.17-9.34,4.33-13.52"/><path class="bt" d="M518.78,493.7c.33-.57.67-1.14,1.03-1.69"/></g><line class="bt" x1="519.81" y1="492.01" x2="559.74" y2="515.04"/></g></g><g id="z" data-name="kitchen_plyta"><rect class="bo" x="374.23" y="494.74" width="45.25" height="43.09"/><rect class="bo" x="375.55" y="495.49" width="42.61" height="43.76" rx="1.65" ry="1.65" transform="translate(-120.52 914.22) rotate(-90)"/><circle class="bg" cx="407.75" cy="530.66" r="5.78"/><circle class="bg" cx="386.73" cy="507.99" r="5.78"/><circle class="bg" cx="408.29" cy="509.65" r="7.44"/><circle class="bg" cx="386.22" cy="528.53" r="7.44"/><rect class="bg" x="395.97" y="473.83" width="1.76" height="40.07" transform="translate(-97.01 890.71) rotate(-90)"/><g><circle class="bg" cx="390.68" cy="499.45" r="1.37"/><ellipse class="bg" cx="390.68" cy="499.45" rx=".59" ry="1.24"/></g><g><circle class="bg" cx="395.03" cy="499.45" r="1.37"/><ellipse class="bg" cx="395.03" cy="499.45" rx=".59" ry="1.24"/></g><g><circle class="bg" cx="399.39" cy="499.45" r="1.37"/><ellipse class="bg" cx="399.39" cy="499.45" rx=".59" ry="1.24"/></g><g><circle class="bg" cx="403.74" cy="499.45" r="1.37"/><ellipse class="bg" cx="403.74" cy="499.45" rx=".59" ry="1.24"/></g></g><g><rect class="bk" x="477.62" y="503.96" width="24.21" height="46.36" transform="translate(1016.87 37.42) rotate(90)"/><g><g><path class="bt" d="M466.54,515.04c0-.66.02-1.33.05-1.98"/><path class="bf" d="M466.97,509c.68-4.79,2.16-9.34,4.3-13.52"/><path class="bt" d="M472.24,493.7c.33-.57.67-1.14,1.02-1.7"/></g><line class="bt" x1="473.26" y1="492.01" x2="513.04" y2="515.04"/></g></g><g><rect class="bk" x="431.09" y="503.8" width="24.21" height="46.7" transform="translate(970.34 83.95) rotate(90)"/><g><g><path class="bt" d="M466.54,515.04c0-.66-.02-1.33-.05-1.98"/><path class="bv" d="M466.12,509c-.69-4.79-2.17-9.34-4.33-13.52"/><path class="bt" d="M460.81,493.7c-.33-.57-.67-1.14-1.03-1.69"/></g><line class="bt" x1="459.78" y1="492.01" x2="419.85" y2="515.04"/></g></g><g><rect class="bk" x="341.55" y="507.33" width="24.21" height="39.62" transform="translate(880.79 173.49) rotate(90)"/><g><g><path class="bt" d="M373.5,515.08c0-.67-.02-1.33-.05-1.98"/><path class="bd" d="M373.11,509.79c-.58-3.9-1.8-7.61-3.55-11.03"/><path class="bt" d="M368.78,497.3c-.33-.57-.67-1.14-1.03-1.7"/></g><line class="bt" x1="367.75" y1="495.6" x2="333.8" y2="515.08"/></g></g><g><rect class="bk" x="384.75" y="503.8" width="24.21" height="46.7" transform="translate(923.99 130.29) rotate(90)"/><g><g><path class="bt" d="M373.5,515.04c0-.66.02-1.33.05-1.98"/><path class="bv" d="M373.93,509c.69-4.79,2.17-9.34,4.33-13.52"/><path class="bt" d="M379.24,493.7c.33-.57.67-1.14,1.03-1.69"/></g><line class="bt" x1="380.27" y1="492.01" x2="420.2" y2="515.04"/></g></g></g><g><rect class="ay" x="633.29" y="284.08" width="45.62" height="81.45"/><g><path class="bb" d="M633.29,324.81c-6.91,0-13.36-2.19-18.85-5.99"/><line class="bt" x1="614.45" y1="318.82" x2="633.29" y2="284.08"/></g><g><path class="bb" d="M633.29,324.81c-6.91,0-13.36,2.19-18.85,5.99"/><line class="bt" x1="614.45" y1="330.8" x2="633.29" y2="365.53"/></g></g><g><rect class="ay" x="270.89" y="487.38" width="43.36" height="66.44" transform="translate(-228.02 813.17) rotate(-90)"/><g><path class="bb" d="M292.58,542.28c0,5.47-1.79,10.58-4.89,14.93"/><line class="bt" x1="287.69" y1="557.21" x2="259.36" y2="542.28"/></g><g><path class="bb" d="M292.58,542.28c0,5.47,1.79,10.58,4.89,14.93"/><line class="bt" x1="297.46" y1="557.21" x2="325.8" y2="542.28"/></g></g><g id="aa" data-name="bath_shelf1"><rect id="ab" data-name="bath_blat" class="bk" x="492.3" y="18.49" width="35.92" height="87.85" transform="translate(572.67 -447.85) rotate(90)"/><g id="ac" data-name="bath_zlew"><ellipse class="bo" cx="510.27" cy="63.94" rx="17.34" ry="14.2"/><ellipse class="bg" cx="510.27" cy="62.91" rx="11.69" ry="8.55"/><ellipse class="bg" cx="510.27" cy="62.5" rx="1.98" ry="2.02"/></g><g id="ad" data-name="bath_sh2"><rect class="bk" x="502.95" y="8.09" width="14.63" height="87.36" transform="translate(458.5 562.04) rotate(-90)"/><line class="bj" x1="515.1" y1="79.01" x2="554.18" y2="59.31"/><path class="bi" d="M510.2,59.31c0,6.58,1.67,13.77,4.9,19.69h0"/><line class="bj" x1="505.42" y1="79.01" x2="466.34" y2="59.31"/><path class="bi" d="M510.32,59.31c0,6.58-1.67,13.77-4.9,19.69h0"/></g></g><g><rect class="ay" x="414.17" y="173.7" width="43.99" height="45.03" transform="translate(872.32 392.44) rotate(180)"/><g><g><path class="bt" d="M392.3,180.29c.56-.35,1.13-.69,1.7-1.02"/><path class="az" d="M397.41,177.55c4.01-1.81,8.35-2.99,12.89-3.42"/><path class="bt" d="M412.2,173.99c.66-.03,1.32-.05,1.98-.05"/></g><line class="bt" x1="414.18" y1="218.75" x2="392.3" y2="180.29"/></g></g><g><rect class="bk" x="414.21" y="20.83" width="43.95" height="76.9"/><g><g><path class="bo" d="M414.21,59.28c-.67,0-1.34-.02-2-.05"/><path class="bm" d="M408.86,58.93c-3.98-.53-7.77-1.63-11.28-3.22"/><path class="bo" d="M396.07,54.99c-.6-.3-1.18-.62-1.76-.95"/></g><line class="be" x1="414.21" y1="20.83" x2="394.52" y2="53.27"/></g><g><g><path class="bo" d="M414.21,59.25c-.67,0-1.34.02-2,.05"/><path class="bm" d="M408.86,59.6c-3.98.53-7.77,1.63-11.28,3.22"/><path class="bo" d="M396.07,63.54c-.6.3-1.18.62-1.76.95"/></g><line class="be" x1="414.21" y1="97.69" x2="394.52" y2="65.26"/></g></g><g><rect class="bk" x="414.21" y="96.81" width="43.95" height="76.9"/><g><g><path class="bo" d="M414.21,135.25c-.67,0-1.34-.02-2-.05"/><path class="bm" d="M408.86,134.9c-3.98-.53-7.77-1.63-11.28-3.22"/><path class="bo" d="M396.07,130.96c-.6-.3-1.18-.62-1.76-.95"/></g><line class="be" x1="414.21" y1="96.81" x2="394.52" y2="129.24"/></g><g><g><path class="bo" d="M414.21,135.22c-.67,0-1.34.02-2,.05"/><path class="bm" d="M408.86,135.57c-3.98.53-7.77,1.63-11.28,3.22"/><path class="bo" d="M396.07,139.51c-.6.3-1.18.62-1.76.95"/></g><line class="be" x1="414.21" y1="173.67" x2="394.52" y2="141.23"/></g></g><g id="ae" data-name="Artwork 2"><g class="cj"><rect class="cf" x="466.21" y="155.22" width="47.74" height="46.25"/><g class="ck"><rect class="bh" x="466.21" y="155.21" width="47.74" height="46.25"/><path class="bs" d="M506.96,132.22c.35.54.68,1.1,1,1.66"/><path class="bq" d="M509.84,137.53c1.95,4.28,3.22,8.91,3.67,13.76"/><path class="bs" d="M513.65,153.32c.03.63.04,1.27.04,1.91"/><line class="bs" x1="466.19" y1="155.23" x2="506.96" y2="132.22"/><rect class="cf" x="467.34" y="157.68" width="45.48" height="42.91"/><rect class="be" x="467.34" y="157.68" width="45.48" height="42.91"/><rect class="cf" x="467.34" y="156.09" width="45.48" height="1.59"/><rect class="be" x="467.34" y="156.09" width="45.48" height="1.59"/><path class="br" d="M497.99,179.14c0,3.95-3.39,7.15-7.58,7.15-1.68,0-3.24-.52-4.5-1.39-1.87-1.3-3.08-3.4-3.08-5.76,0-3.95,3.39-7.15,7.58-7.15s7.58,3.2,7.58,7.15Z"/><line class="br" x1="501.78" y1="195.82" x2="486.5" y2="185.26"/><line class="br" x1="478.45" y1="162.45" x2="494.3" y2="172.99"/></g></g></g></g><g id="ah" data-name="TEXT"><g><g id="ai" data-name="MTEXT"><text class="cc" transform="translate(246.15 205.49)"><tspan x="0" y="0">12,2 m²</tspan></text></g><g id="aj" data-name="MTEXT"><text class="cc" transform="translate(219.12 185.74)"><tspan x="0" y="0">Svefnherbergi</tspan></text></g></g><g><g id="ak" data-name="MTEXT"><text class="cc" transform="translate(228.09 604.87)"><tspan x="0" y="0">8,5 m²</tspan></text></g><g id="al" data-name="MTEXT"><text class="cc" transform="translate(198.64 585.13)"><tspan x="0" y="0">Svefnherbergi</tspan></text></g></g><g id="am" data-name="MTEXT"><text class="cc" transform="translate(384.38 282.81)"><tspan x="0" y="0">Alrými</tspan></text></g><g><g id="an" data-name="MTEXT"><text class="cc" transform="translate(545.9 149.14)"><tspan x="0" y="0">6,5 m²</tspan></text></g><g id="ao" data-name="MTEXT"><text class="cc" transform="translate(530.68 130.02)"><tspan x="0" y="0">Bað/Þvott</tspan></text></g></g><g><g id="ap" data-name="MTEXT"><text class="cc" transform="translate(33.48 335.01)"><tspan x="0" y="0">4,0 m²</tspan></text></g><g id="aq" data-name="MTEXT"><text class="cc" transform="translate(35.29 315.27)"><tspan x="0" y="0">Svalir</tspan></text></g></g></g></g></g></svg>

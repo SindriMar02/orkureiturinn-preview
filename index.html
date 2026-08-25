@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="is">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Orkureiturinn — Nýja hverfið við Laugardalinn</title>
+  <meta name="description" content="Orkureiturinn: nýtt hverfi við Laugardalinn. Fjölbreyttar íbúðir, fjórir áfangar, vottuð gæði. Frumgerð af nýrri vefupplifun.">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#17181b">
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/D-DIN.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <div class="awning" aria-hidden="true"></div>
+
+  <!-- preloader (likova .preloader--landing anatomy: stepped white block, wordmark inset) -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader__block"><i class="pb pb--a"></i><i class="pb pb--b"></i>
+      <div class="preloader__inner">
+        <span class="preloader__logo"><span class="o">O</span>RKUREITURINN</span>
+        <div class="preloader__meta">
+          <span class="preloader__bar"><i id="preloader-fill"></i></span>
+          <span class="preloader__pct t-num"><span id="preloader-counter">0</span>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="page-overlay" class="page-overlay" aria-hidden="true"></div>
+
+  <!-- header — likova 12-col grid: burger c1 · logo c2-8 · links c10-12 -->
+  <header id="header" class="ui-dark header--top header--sticky">
+    <div class="header__background" aria-hidden="true"></div>
+    <div class="header__content">
+      <div class="header__grid">
+        <div class="hcol hcol--burger">
+          <button class="burger js-menu-toggle" type="button" aria-label="Valmynd" aria-expanded="false"><span></span><span></span></button>
+        </div>
+        <div class="hcol hcol--logo">
+          <a class="header__logo js-logo" href="#inngangur">Orkureiturinn</a>
+        </div>
+        <div class="hcol hcol--link is-hidden-sm"><a class="header__cta" href="#valmyndin">Skoða íbúðir</a></div>
+        <div class="hcol hcol--fav is-hidden-sm">
+          <a class="js-fav-chip" href="#valmyndin" aria-label="Uppáhalds íbúðir">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.6 4.7 4.7 0 0 1 6.6 0l.5.5.5-.5a4.7 4.7 0 0 1 6.6 0 4.6 4.6 0 0 1 0 6.6Z"/></svg>
+            <span class="js-fav-count">0</span>
+          </a>
+        </div>
+        <div class="hcol hcol--contact"><button class="header__cta js-callback" type="button">Hafa samband</button></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- menu -->
+  <div id="menu" class="is-hidden" aria-hidden="true">
+    <nav class="menu__panel" aria-label="Aðalvalmynd">
+      <div class="js-menu-scroller">
+        <ul class="menu__list js-menu-list">
+          <li><a class="js-menu-link" href="#reiturinn">Reiturinn</a></li>
+          <li><a class="js-menu-link" href="#tolurnar">Tölurnar</a></li>
+          <li><a class="js-menu-link" href="#laugardalurinn">Laugardalurinn</a></li>
+          <li><a class="js-menu-link" href="#adgengi">Í seilingu</a></li>
+          <li><a class="js-menu-link" href="#skipulagid">Skipulagið</a></li>
+          <li><a class="js-menu-link" href="#arkitekturinn">Arkitektúrinn</a></li>
+          <li><a class="js-menu-link" href="#linurnar">Línurnar</a></li>
+          <li><a class="js-menu-link" href="#kaupin">Kaupin</a></li>
+          <li><a class="js-menu-link" href="#valmyndin">Íbúðir í sölu</a></li>
+          <li><a class="js-menu-link" href="#kerfin">Kerfin</a></li>
+          <li><a class="js-menu-link" href="#teymid">Teymið</a></li>
+        </ul>
+      </div>
+      <div class="menu__foot">
+        <a class="btn" href="#valmyndin"><span class="btn__label"><span>Skoða íbúðir</span><span aria-hidden="true">Skoða íbúðir</span></span></a>
+        <button class="btn btn--ghost js-callback" type="button"><span class="btn__label"><span>Hafa samband</span><span aria-hidden="true">Hafa samband</span></span></button>
+      </div>
+    </nav>
+    <div class="menu__veil js-menu-veil" aria-hidden="true"></div>
+  </div>
+
+  <div class="c-scrollbar" id="scrollbar" aria-hidden="true"><span class="c-scrollbar__thumb"></span></div>
+
+  <main id="page">
+
+    <!-- 1 · Inngangur — likova .intro anatomy, 1:1 -->
+    <section class="ch-intro section ui-dark" id="inngangur" data-themed="ui-dark">
+      <div class="sticky" data-parallax-pattern="introSticky"><div class="sticky__layer">
+        <div class="intro__sky" aria-hidden="true"><i class="intro__sky--day"></i></div>
+        <div class="scrim scrim--intro" aria-hidden="true"></div>
+        <h1 class="visually-hidden">Orkureiturinn — nýja hverfið við Laugardalinn</h1>
+        <div class="intro__head ui-light js-intro-head" data-parallax-pattern="introHead">
+          <div class="intro__bookmark js-intro-bookmark">
+            <a class="btn--square" href="#reiturinn" aria-label="Skruna niður"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+        </div>
+        <div class="intro__text" data-parallax-pattern="introText"><p class="intro__text-inner">Nýja hverfið<br>við Laugardalinn</p></div>
+        <div class="intro__content" data-parallax-pattern="introContent">
+          <p class="intro__content-text" data-parallax-pattern="introContentText">Fjölbreyttar íbúðir á eftirsóttum stað. Heilt hverfi í fjórum áföngum við Laugardalinn, byggt utan um dagsbirtu, gróður og gott skjól.</p>
+          <div class="intro__class" data-parallax-pattern="introClass">
+            <p class="t-small">Íbúðir</p>
+            <span class="intro__class-num t-num">436</span>
+          </div>
+        </div>
+        <div class="intro__building" data-parallax-pattern="introBuilding">
+          <picture class="intro__building-pic"><img data-img="hero-building" data-w="828 1440" alt="Orkureiturinn við Suðurlandsbraut í kvöldbirtu"></picture>
+          <picture class="intro__building-pic intro__building-pic--lights" data-parallax-pattern="introLights"><img data-img="hero-building-lights" data-w="828 1440" alt="" aria-hidden="true"></picture>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 2 · Reiturinn -->
+    <section class="ch-reitur section section--wipe ui-dark--deep" id="reiturinn" data-themed="ui-dark"
+      data-parallax-pattern="terraceWipe">
+      <div class="reitur__hero">
+        <figure class="reitur__herofig" data-parallax-pattern="imageMove"><img data-img="reitur-render" data-w="828 1440" alt="Húsin á Orkureitnum í kvöldsól, séð frá Suðurlandsbraut"></figure>
+        <div class="reitur__bookmark">
+          <p class="t-small">Reiturinn við Suðurlandsbraut.<br>Orkuhúsið stendur áfram í miðjunni.</p>
+          <span class="reitur__badge t-num">1</span>
+        </div>
+      </div>
+      <div class="grid">
+        <h2 class="t-h2" data-parallax-pattern="driftUpSlow" data-reveal="title">Reiturinn</h2>
+        <div class="reitur__copy" data-reveal="text" data-reveal-delay="150">
+          <p class="t-lead">Á Orkureitnum við Suðurlandsbraut rís 436 íbúða byggð í fjórum áföngum, og hin tímalausa bygging Orkuhússins stendur áfram í miðpunkti reitsins.</p>
+          <p class="t-body t-smoke" style="margin-top:1em">Heimili, verslun og þjónusta á jarðhæðum og 4600 m² af atvinnuhúsnæði í Orkuhúsinu og á jarðhæðum nýju húsanna: heilt hverfi, hannað utan um dagsbirtu, gróður og gott skjól.</p>
+        </div>
+      </div>
+      <div class="reitur__pair">
+        <figure data-parallax-pattern="imageMove"><img data-img="reitur-2" data-w="828 1440" alt="Villtur gróður í innigarði Orkureitsins"><figcaption class="t-small t-smoke">Villtur gróður og votlendisplöntur í inngörðunum.</figcaption></figure>
+        <figure data-parallax-pattern="imageMove"><img data-img="jardhaed" data-w="828 1440" alt="Innigarður og jarðhæðir á Orkureitnum"><figcaption class="t-small t-smoke">Verslun, kaffihús og þjónusta á jarðhæðum.</figcaption></figure>
+      </div>
+      <div class="grid reitur__sagan">
+        <span class="t-label t-smoke reitur__saganlabel" data-reveal="fade-in">Sagan</span>
+        <div class="reitur__saganbody" data-reveal="text">
+          <p class="t-lead">Rafmagnsveita Reykjavíkur reisti höfuðstöðvar sínar á lóðinni vestan Grensásvegar á áttunda áratug síðustu aldar.</p>
+          <p class="t-body t-smoke" style="margin-top:1em">Eftir að Rafmagnsveitan og Hitaveitan sameinuðust í Orkuveituna og fluttu upp á Höfða hefur aðalbyggingin gengið undir nafninu Orkuhúsið. Þar verður áfram atvinnustarfsemi &mdash; en sögulegi reiturinn umhverfis húsið gengur nú í endurnýjun lífdaga.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Tölurnar -->
+    <section class="ch-stats section section--wipe wipe--flush ui-dark js-stats" id="tolurnar" data-themed="ui-dark" data-parallax-pattern="terraceWipeMirror">
+      <div class="sticky"><div class="sticky__layer">
+        <div class="stats__bg" data-parallax-pattern="backgroundMove"><img data-img="stats-aerial" data-w="828 1440" alt="" aria-hidden="true"></div>
+        <div class="stat js-stat is-active">
+          <div class="stat__row"><span class="t-label stat__label">Íbúðir í hverfinu</span><span class="stat__num js-stat-num" data-to="436">0</span></div>
+          <p class="stat__sub">Allt frá litlum einstaklings- og paraíbúðum upp í stórar íbúðir efst í húsunum, byggðar í fjórum áföngum: A, B, C og D.</p>
+        </div>
+        <div class="stat js-stat">
+          <div class="stat__row"><span class="t-label stat__label">Íbúðum í D-húsi fylgir sérbílastæði</span><span class="stat__num js-stat-num" data-to="73">0</span></div>
+          <p class="stat__sub">Sérbílastæði fylgja 73 íbúðum í D-húsi og bílskúrar fylgja tíu stærstu íbúðunum. Bílastæðahúsið tengist öllum húsunum neðanjarðar.</p>
+        </div>
+        <div class="stat js-stat">
+          <div class="stat__row"><span class="t-label stat__label">Áfangar hverfisins</span><span class="stat__num js-stat-num" data-to="4">0</span></div>
+          <p class="stat__sub">A-hús afhent haustið 2024, D-hús 2025, B-hús 2026 og lokaáfanginn C haustið 2027.</p>
+        </div>
+        <div class="stats__rules" aria-hidden="true"><span class="rule"><i class="js-stat-fill"></i></span><span class="rule"><i class="js-stat-fill"></i></span><span class="rule"><i class="js-stat-fill"></i></span></div>
+      </div></div>
+    </section>
+
+    <!-- 4 · Laugardalurinn -->
+    <section class="ch-dalur section section--wipe ui-dark js-seq" id="laugardalurinn" data-themed="ui-dark"
+      data-parallax-pattern="terraceWipeMirror"
+      data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0},{"viewport":200,"element":0},{"viewport":300,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="dalur__stage" data-parallax-pattern="driftUpSlow">
+          <div class="dalur__beat js-beat is-active"><img data-img="dalur-laug" data-w="828 1440" alt="Laugardalslaug"></div>
+          <div class="dalur__beat js-beat"><img data-img="dalur-park" data-w="828 1440" alt="Trjágöng og opin svæði í Laugardalnum"></div>
+          <div class="dalur__beat js-beat"><img data-img="dalur-city" data-w="828 1440" alt="Reykjavík séð frá Laugardalnum"></div>
+        </div>
+        <div class="dalur__card">
+          <div>
+            <span class="t-label t-smoke">Laugardalurinn</span>
+            <h2 class="t-h3 js-beat-title" style="margin-top:.5em">Laugin</h2>
+          </div>
+          <div class="dalur__icon js-beat-icon" aria-hidden="true"></div>
+          <div class="dalur__foot">
+            <div class="dalur__rules" aria-hidden="true"><span class="rule"><i class="js-rule-fill"></i></span><span class="rule"><i class="js-rule-fill"></i></span><span class="rule"><i class="js-rule-fill"></i></span></div>
+            <div class="dalur__counter t-small t-num"><span class="js-beat-i">1</span><svg viewBox="0 0 5 10" aria-hidden="true"><path d="M4 1L1 9" stroke="currentColor" stroke-width="1" fill="none"/></svg><span>3</span></div>
+          </div>
+        </div>
+        <div class="dalur__copy js-beat-copy" data-beats='[
+          {"t":"Laugin","c":"Stærsta útilaug landsins, gufan og morgunroutínan sem fylgir hverfinu.","icon":"laug"},
+          {"t":"Dalurinn","c":"Grasagarðurinn, fjölskyldugarðurinn og íþróttasvæðin: grænasti dalur borgarinnar er bakgarðurinn.","icon":"tre"},
+          {"t":"Miðborgin","c":"Laugavegurinn og miðborgin handan við hæðina, hjóla- og göngustígar í allar áttir.","icon":"hjol"}]'>
+          <p class="t-body js-beat-text">Stærsta útilaug landsins, gufan og morgunroutínan sem fylgir hverfinu.</p>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 4b · Í seilingu — Holt scroll-map system: stitched tiles, real OSRM routes -->
+    <section class="ch-map section section--wipe ui-dark js-map" id="adgengi" data-themed="ui-dark"
+      data-parallax-pattern="terraceWipe"
+      data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0},{"viewport":200,"element":0},{"viewport":300,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="mapx" aria-hidden="true">
+          <div class="mapx__box js-map-box">
+            <img class="mapx__sheet" src="assets/map/sheet.webp" width="2048" height="1280" alt="" loading="lazy" decoding="async">
+            <svg class="mapx__svg" viewBox="0 0 2048 1280" preserveAspectRatio="none">
+            <path class="mapx__route js-route" data-route="0" d="M1560.5 1005.2 L1541.6 981.3 L1545.2 978.5 L1546.9 977.2 L1548.5 976.0 L1544.2 970.0 L1539.2 963.3 L1537.1 959.1 L1536.2 956.9 L1531.1 950.3 L1533.1 948.8 L1537.5 945.4 L1539.3 944.0 L1544.1 942.4 L1547.3 941.4 L1549.5 940.1 L1550.8 939.1 L1516.1 891.7 L1507.5 880.3 L1481.5 846.0 L1459.6 818.8 L1450.2 807.6 L1446.2 803.1 L1443.6 800.4 L1422.2 779.5 L1412.7 770.9 L1402.7 762.5 L1396.7 757.5 L1367.6 734.5 L1361.6 730.1 L1355.0 727.3 L1352.2 725.7 L1345.1 722.3 L1340.6 720.9 L1335.7 720.2 L1323.6 719.6 L1318.5 719.2 L1314.2 718.5 L1317.1 701.0 L1318.6 688.2 L1319.7 675.9 L1320.9 659.6 L1321.7 658.5 L1322.8 657.6 L1324.4 657.0 L1325.1 657.0 L1327.2 653.0 L1329.8 650.2 L1327.5 647.1 L1325.5 643.9 L1323.8 641.0 L1323.5 639.9 L1323.2 638.7 L1322.9 633.3 L1322.1 615.4 L1322.0 609.8 L1322.1 602.0 L1322.6 594.2 L1324.6 577.0 L1325.0 575.4 L1325.7 574.3 L1326.6 573.3 L1326.8 570.5 L1327.0 567.7 L1326.5 566.6 L1326.4 565.2 L1328.6 543.6 L1330.9 522.4 L1332.5 504.8 L1333.7 502.4 L1334.0 499.7 L1334.3 496.1 L1333.4 494.7 L1333.3 493.3 L1335.5 478.9 L1338.8 452.8 L1340.1 452.5 L1342.9 450.8 L1344.4 450.5 L1348.6 450.8 L1350.1 449.1 L1352.0 447.4 L1354.2 446.1 L1355.8 445.5 L1357.5 445.1 L1360.9 444.8 L1364.3 444.2 L1367.7 443.2 L1371.4 441.7 L1371.5 436.7 L1371.7 421.9 L1376.5 415.1 L1386.2 401.2" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            <path class="mapx__route js-route" data-route="1" d="M1560.5 1005.2 L1541.6 981.3 L1545.2 978.5 L1546.9 977.2 L1548.5 976.0 L1544.2 970.0 L1539.2 963.3 L1537.1 959.1 L1536.2 956.9 L1531.1 950.3 L1533.1 948.8 L1537.5 945.4 L1539.3 944.0 L1544.1 942.4 L1547.3 941.4 L1549.5 940.1 L1550.8 939.1 L1554.5 944.0 L1559.0 943.2 L1587.7 927.4 L1610.0 915.1 L1615.8 909.3 L1617.6 907.5 L1619.5 902.3 L1610.1 890.8 L1596.1 873.6 L1581.3 854.0 L1577.2 849.3 L1579.6 848.3 L1582.0 847.6 L1583.8 846.9 L1586.9 846.1 L1590.3 845.1 L1592.5 843.3 L1593.3 841.5 L1594.3 839.2 L1595.5 836.6 L1598.0 833.2 L1601.1 830.2 L1603.9 828.1 L1597.2 816.8 L1596.1 810.5 L1585.8 792.0 L1583.6 789.8 L1580.6 788.7 L1578.6 785.6 L1574.4 778.9 L1574.3 777.5 L1584.9 771.5 L1589.2 769.3 L1590.0 766.0 L1590.9 762.0 L1594.7 742.0 L1595.2 738.6 L1597.1 736.2 L1601.5 732.3 L1604.6 732.2 L1597.1 719.1 L1604.8 714.0 L1609.6 711.1 L1619.4 704.8 L1621.9 702.7 L1623.5 700.9 L1624.1 699.9 L1623.9 696.4 L1623.5 693.7 L1622.6 689.1 L1622.0 687.0 L1621.7 686.6 L1621.4 682.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            <path class="mapx__route js-route" data-route="2" d="M1560.5 1005.2 L1567.2 1013.8 L1570.8 1011.0 L1582.4 1025.7 L1590.7 1025.4 L1599.9 1037.7 L1600.4 1038.3 L1602.9 1041.7 L1606.8 1046.8 L1608.9 1049.6 L1613.6 1046.0 L1617.4 1043.1 L1618.6 1042.1 L1619.9 1041.0 L1622.7 1038.5 L1624.3 1035.7 L1629.7 1028.1 L1637.8 1014.9 L1641.2 1009.3 L1642.3 1007.3 L1644.4 1003.6 L1645.9 1000.9 L1647.9 997.1 L1649.7 993.9 L1666.0 968.7 L1669.7 962.7 L1670.4 959.5 L1670.6 956.5 L1670.3 953.1 L1669.5 950.3 L1668.5 948.3 L1665.5 944.6 L1662.4 942.3 L1659.6 941.0 L1655.0 939.7 L1651.3 938.1 L1648.4 936.6 L1645.6 934.7 L1643.1 932.6 L1632.7 921.8 L1631.2 919.8 L1619.5 902.3 L1621.9 893.6 L1644.6 812.5 L1644.5 812.4 L1644.1 812.1 L1643.7 811.9 L1643.3 811.6 L1643.0 811.2 L1642.7 810.9 L1642.4 810.5 L1642.2 810.1 L1642.0 809.6 L1641.8 809.2 L1641.7 808.7 L1641.6 808.2 L1641.6 807.8 L1641.6 807.3 L1641.6 806.8 L1641.7 806.3 L1641.8 805.8 L1642.0 805.4 L1642.2 805.0 L1642.4 804.6 L1642.7 804.2 L1643.0 803.8 L1643.4 803.5 L1643.7 803.2 L1644.1 802.9 L1644.4 802.7 L1628.8 775.1 L1604.6 732.2 L1597.1 719.1 L1596.2 717.5 L1579.4 688.7 L1570.9 673.6 L1562.0 657.7 L1559.4 653.5 L1556.5 649.4 L1553.3 645.5 L1550.0 641.8 L1546.5 638.2 L1542.8 634.8 L1538.9 631.6 L1534.8 628.6 L1530.7 625.9 L1526.3 623.4 L1521.9 621.0 L1516.4 618.5 L1512.2 617.4 L1507.9 616.6 L1489.1 613.3 L1484.2 612.5 L1461.2 608.4 L1447.5 606.1 L1439.2 605.1 L1432.8 604.7 L1426.1 604.5 L1408.7 604.3 L1405.8 604.3 L1378.7 604.4 L1367.7 604.6 L1366.7 607.4 L1364.4 611.2 L1342.5 642.4 L1338.7 645.6 L1336.1 646.2 L1334.1 646.1 L1330.4 650.9 L1329.8 650.2 L1327.2 653.0 L1325.1 657.0 L1324.4 657.0 L1322.8 657.6 L1321.7 658.5 L1320.9 659.6 L1317.5 659.0 L1312.8 658.7 L1309.7 658.6 L1306.3 658.8 L1303.3 659.8 L1299.4 661.3 L1282.5 680.3 L1269.5 675.1 L1253.6 668.2 L1248.0 664.7 L1243.9 661.9 L1241.5 661.1 L1239.2 661.0 L1235.9 661.0 L1197.7 661.4 L1190.5 661.5 L1181.3 657.5 L1165.9 650.8 L1147.8 693.3 L1147.0 695.3 L1146.3 697.0 L1145.4 699.1 L1144.2 701.0 L1142.0 703.0 L1138.1 704.6 L1121.6 706.2 L1113.5 708.1 L1109.3 710.0 L1104.8 713.9 L1102.9 715.2 L1100.8 716.3 L1100.6 717.7 L1099.8 718.0 L1099.3 718.6 L1098.6 719.4 L1098.0 719.9 L1097.5 720.4 L1097.0 720.6 L1096.0 720.9 L1093.4 720.7 L1092.1 720.6 L1090.0 720.4 L1083.7 719.7 L1081.2 719.4 L1079.9 719.2 L1078.3 718.8 L1076.2 718.0 L1075.2 717.2 L1074.5 716.1 L1073.6 715.0 L1072.7 713.9 L1071.6 713.1 L1070.2 712.6 L1068.6 712.4 L1063.6 712.2 L1058.7 711.4 L1028.5 700.1 L1011.6 691.9 L988.2 680.7 L985.3 678.6 L983.0 676.1 L979.9 673.8 L974.8 671.1 L970.1 668.8 L965.6 667.2 L963.1 667.2 L961.4 667.2 L956.1 664.8 L951.5 662.4 L839.8 607.7 L839.0 607.3 L834.9 605.5 L832.3 604.3 L830.5 603.5 L829.3 603.0 L818.9 598.6 L808.0 594.3 L793.8 589.7 L782.2 586.0 L779.3 584.7 L777.3 583.3 L775.1 581.6 L773.1 579.4 L771.8 577.8 L770.8 576.3 L770.2 576.7 L769.3 577.2 L767.6 574.3 L766.4 571.7 L763.4 567.6 L761.5 564.0 L759.8 561.2 L757.6 557.2 L754.3 555.7 L749.6 553.7 L745.1 551.8 L738.7 549.0 L686.5 526.8 L684.3 525.8 L658.7 514.8 L642.2 507.7 L640.8 507.1 L634.1 504.4 L632.4 508.4 L627.6 519.9 L627.0 521.3 L621.5 534.4 L620.6 536.6 L620.0 538.0 L613.7 553.0 L611.1 551.8 L610.3 553.6 L609.9 554.2 L609.5 554.9 L609.0 555.9 L604.7 554.3 L602.8 560.4 L601.3 557.7 L597.5 552.1 L597.0 551.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            </svg>
+          <span class="mapx__pin mapx__pin--site" style="--x:75.91%;--y:78.89%">Orkureiturinn</span>
+          <span class="mapx__pin mapx__pin--poi js-poi" data-poi=0 style="--x:68.02%;--y:31.72%">Laugardalslaug</span>
+          <span class="mapx__pin mapx__pin--poi js-poi" data-poi=1 style="--x:79.46%;--y:53.27%">Grasagarðurinn</span>
+          <span class="mapx__pin mapx__pin--poi js-poi" data-poi=2 style="--x:29.06%;--y:43.22%">Hlemmur</span>
+          </div>
+        </div>
+        <div class="map__card js-map-card" data-beats='[{"n": "22", "unit": "mín · gangandi", "t": "Í Laugardalslaug", "c": "1,6 km af göngustígum milli reitsins og stærstu útilaugar landsins."}, {"n": "13", "unit": "mín · gangandi", "t": "Í Grasagarðinn", "c": "980 metrar í grænasta hluta Laugardalsins, beint úr hverfinu."}, {"n": "12", "unit": "mín · hjólandi", "t": "Á Hlemm", "c": "Hjólastígar alla leið niður á Hlemm og áfram um miðborgina."}]'>
+          <div class="map__num-row">
+            <span class="map__num js-map-num t-num">22</span>
+            <span class="map__unit t-label js-map-unit">mín gangandi, u.þ.b.</span>
+          </div>
+          <h2 class="t-h3 js-map-t">Í Laugardalslaug</h2>
+          <p class="t-small t-smoke js-map-c">1,6 km af göngustígum milli reitsins og stærstu útilaugar landsins.</p>
+          <div class="dalur__foot">
+            <div class="dalur__rules" aria-hidden="true"><span class="rule"><i class="js-map-fill"></i></span><span class="rule"><i class="js-map-fill"></i></span><span class="rule"><i class="js-map-fill"></i></span></div>
+            <div class="dalur__counter t-small t-num"><span class="js-map-i">1</span><svg viewBox="0 0 5 10" aria-hidden="true"><path d="M4 1L1 9" stroke="currentColor" stroke-width="1" fill="none"/></svg><span>3</span></div>
+          </div>
+        </div>
+        <span class="mapx__credit t-small">Kort: © OpenStreetMap · CARTO</span>
+      </div></div>
+    </section>
+
+    <!-- 5 · Skipulagið -->
+    <section class="ch-plan section section--wipe ui-light" id="skipulagid" data-themed="ui-light"
+      data-parallax-pattern="terraceWipe" data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="bg-media" data-parallax-pattern="backgroundMove"><img data-img="plan-aerial" data-w="828 1440" alt="Orkureiturinn úr lofti: fjórir áfangar umhverfis Orkuhúsið"></div>
+        <div class="plan__cardwrap">
+          <div class="plan__card">
+            <div class="plan__phases" aria-label="Áfangar hverfisins">
+              <span class="phase phase--a">A</span><span class="phase phase--b">B</span><span class="phase phase--c">C</span><span class="phase phase--d">D</span>
+            </div>
+            <p class="t-small" style="margin:14px 0 26px">Fjórir áfangar. Eitt hverfi.<br>Orkuhúsið í miðjunni.</p>
+          </div>
+          <a class="btn plan__btn" href="https://orkureiturinn.is" target="_blank" rel="noopener"><span class="btn__label"><span>Sjá skipulagið</span><span aria-hidden="true">Sjá skipulagið</span></span></a>
+        </div>
+        <div class="plan__title px">
+          <span class="t-label" data-reveal="fade-in">Hverfið í heild</span>
+          <h2 class="t-h2" data-reveal="title">Skipulagið</h2>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 6 · Arkitektúrinn -->
+    <section class="ch-arch section section--wipe ui-dark js-seq2" id="arkitekturinn" data-themed="ui-dark" data-parallax-pattern="terraceWipe"
+      data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0},{"viewport":200,"element":0},{"viewport":300,"element":0},{"viewport":400,"element":0},{"viewport":500,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="arch__bg">
+          <div class="arch__slide js-beat is-active"><img data-img="arch-1" data-w="828 1440" alt="Byggingar Orkureitsins"></div>
+          <div class="arch__slide js-beat"><img data-img="arch-2" data-w="828 1440" alt="Svalir og gróður á þaki"></div>
+          <div class="arch__slide js-beat"><img data-img="arch-3" data-w="828 1440" alt="Inngangur og jarðhæð"></div>
+        </div>
+        <h2 class="visually-hidden">Arkitektúrinn</h2>
+        <div class="arch__facts js-arch-facts" data-facts='[
+          "436 íbúðir byggðar í fjórum áföngum umhverfis Orkuhúsið.",
+          "4600 m² af verslun og þjónustu á jarðhæðum húsanna.",
+          "Sérbílastæði fylgja 73 íbúðum í D-húsi, bílskúrar þeim tíu stærstu.",
+          "Fyrsti íbúðareitur landsins með BREEAM Excellent umhverfisvottun."]'>
+          <span class="t-label t-smoke">Arkitektúrinn</span>
+          <p class="arch__fact t-lead js-arch-fact">436 íbúðir byggðar í fjórum áföngum umhverfis Orkuhúsið.</p>
+          <div class="arch__nav">
+            <button class="arrow arrow--sm js-arch-prev" type="button" aria-label="Fyrri staðreynd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button class="arrow arrow--sm js-arch-next" type="button" aria-label="Næsta staðreynd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <span class="t-small t-num"><span class="js-arch-i">1</span> / 4</span>
+          </div>
+        </div>
+        <div class="arch__card js-arch-card">
+          <span class="t-label t-smoke">Arkitektúrinn</span>
+          <h3 class="t-h3" style="margin-top:.5em">Nordic Office of Architecture</h3>
+          <figure><img data-img="arch-portrait" data-w="828" alt="Helgi Mar Hallgrímsson, arkitekt hjá Nordic Office of Architecture"><figcaption class="t-small t-smoke" style="margin-top:8px">Helgi Mar Hallgrímsson, Nordic</figcaption></figure>
+          <div class="arch__word">
+            <span class="t-label">Orð frá arkitektinum</span>
+            <button class="arrow arrow--sm js-arch-word" type="button" aria-expanded="false" aria-label="Opna orð frá arkitektinum"><span class="arch__plus">+</span></button>
+          </div>
+          <blockquote class="t-small js-arch-wordtext" hidden>„Orkuhúsið er mjög einkennandi bygging með áhugaverðum arkitektúr og hönnun reitsins hverfist óneitanlega um hana. A-húsið er til að mynda tengt við það með tengibyggingu en einnig útlitslega. Allt ytra byrði þess er unnið í sama „módúl“, gluggakantar, klæðning og fleira.“</blockquote>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 6b · Landslagið — /landlagsarkitektur, real harvested copy -->
+    <section class="ch-land section section--wipe ui-light" id="landslagid" data-themed="ui-light"
+      data-parallax-pattern="terraceWipe">
+      <div class="land__hero">
+        <figure class="land__herofig" data-parallax-pattern="imageMove"><img data-img="land-gardskali" data-w="828 1440" alt="Inngarður Orkureitsins með garðskála, matjurtabeðum og setsvæðum"></figure>
+      </div>
+      <div class="grid">
+        <span class="t-label t-smoke land__kicker" data-reveal="fade-in">Landslagsarkitektúrinn</span>
+        <h2 class="t-h2" data-parallax-pattern="driftUpSlow" data-reveal="title">Inngarðar að evrópskri fyrirmynd</h2>
+        <div class="land__copy" data-reveal="text" data-reveal-delay="150">
+          <p class="t-lead">Útisvæðinu er skipt í fjóra hluta sem hver hefur sitt sérkenni: tjörn til að dvelja við, garðskála með matjurtarækt, hreyfistöðvar og leiktæki, og stað til að íhuga í ró og næði.</p>
+          <p class="t-body t-smoke" style="margin-top:1em">Garðarnir eru hannaðir til að nota allt árið: snjóbræddar gönguleiðir og sérhannaðir upphitaðir bekkir. Þeir flæða saman í Orkutorgið, sameiginlegt rými reitsins.</p>
+        </div>
+      </div>
+      <div class="land__facts">
+        <div class="land__fact" data-reveal="text"><span class="t-label t-smoke">Garðskálinn</span><p class="t-body">Vistlegur garðskáli í inngarðinum næst D-húsi &mdash; svaladrykkur á sumrin, kakó á veturna.</p></div>
+        <div class="land__fact" data-reveal="text" data-reveal-delay="100"><span class="t-label t-smoke">Blágrænar ofanvatnslausnir</span><p class="t-body">Regnvatn er leitt í rásir á yfirborði að gróðursvæðum í stað þess að safnast á ógegndræpum flötum.</p></div>
+        <div class="land__fact" data-reveal="text" data-reveal-delay="200"><span class="t-label t-smoke">Græn þök</span><p class="t-body">Gróður á þökum húsanna stöðvar stóran hluta regnvatns og mildar borgarmyndina.</p></div>
+      </div>
+      <div class="reitur__pair">
+        <figure data-parallax-pattern="imageMove"><img data-img="land-honnun" data-w="828 1440" alt="Græn svæði og gróður milli húsanna á Orkureitnum"><figcaption class="t-small t-smoke">Villt yfirbragð á móti formföstum torgum.</figcaption></figure>
+        <figure data-parallax-pattern="imageMove"><img data-img="land-torg" data-w="828 1440" alt="Orkutorgið að kvöldi með upphituðum bekkjum"><figcaption class="t-small t-smoke">Upphitaðir bekkir og lýsing í Orkutorginu.</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 7 · Línurnar -->
+    <section class="ch-lines section section--wipe ui-light js-lines" id="linurnar" data-themed="ui-light"
+      data-parallax-pattern="terraceWipeMirror" data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0}]'>
+      <div class="head">
+        <h2 class="t-h2" data-reveal="title">Línurnar</h2>
+        <p class="t-lead" data-reveal="text" style="margin-top:.6em">Þrjár innréttingalínur Rutar Káradóttur í D-húsi. Í A-húsi eru Rut-línurnar Fönn, Sandur og Jörð.</p>
+      </div>
+      <div class="lines__stats" data-reveal-group data-reveal-delay="80">
+        <div class="lstat" data-reveal="rise"><span class="t-label t-smoke">Innréttingalínur í D-húsi</span><span class="lstat__n t-num">3</span></div>
+        <div class="lstat" data-reveal="rise"><span class="t-label t-smoke">Lausar íbúðir í A- og D-húsi</span><span class="lstat__n t-num">91</span></div>
+        <div class="lstat" data-reveal="rise"><span class="t-label t-smoke">Stærðir, fermetrar</span><span class="lstat__n t-num">43–249</span></div>
+      </div>
+      <div class="lines__wrap">
+        <div>
+          <button class="line-tab line-tab--klassik js-line-tab" type="button"><span class="dot">K</span><span><span class="t-h3">Klassík</span><span class="t-small t-smoke" style="display:block">Björt og tímalaus grunnlína</span></span></button>
+          <button class="line-tab line-tab--harmonia js-line-tab" type="button"><span class="dot">H</span><span><span class="t-h3">Harmónía</span><span class="t-small t-smoke" style="display:block">Hlýrri tónar og dýpri efniskennd</span></span></button>
+          <button class="line-tab line-tab--premium js-line-tab" type="button"><span class="dot">P</span><span><span class="t-h3">Premíum</span><span class="t-small t-smoke" style="display:block">Efsta stig innréttinga hverfisins</span></span></button>
+        </div>
+        <div class="lines__stagebox">
+          <figure class="js-line-stage is-active"><img data-img="lina-klassik" data-w="828 1440" alt="Klassík innréttingalínan"><figcaption>Klassík</figcaption></figure>
+          <figure class="js-line-stage"><img data-img="lina-harmonia" data-w="828 1440" alt="Harmónía innréttingalínan"><figcaption>Harmónía</figcaption></figure>
+          <figure class="js-line-stage"><img data-img="lina-premium" data-w="828 1440" alt="Premíum innréttingalínan"><figcaption>Premíum</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · Íbúðirnar -->
+    <section class="ch-ibudir section section--wipe wipe--flush ui-dark" id="ibudirnar" data-themed="ui-dark" data-parallax-pattern="terraceWipe" data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0},{"viewport":200,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="ibudir__bg js-ib-stage">
+          <div class="ib-slide is-active"><img data-img="ibudir-hus-a" data-w="828 1440" alt="A-húsið á Orkureitnum, austurhlið"></div>
+          <div class="ib-slide"><img data-img="ibudir-courtyard" data-w="828 1440" alt="Inngarður milli húsanna á Orkureitnum"></div>
+          <div class="ib-slide"><img data-img="ibudir-hus" data-w="828 1440" alt="D-húsið á Orkureitnum"></div>
+        </div>
+        <div class="ibudir__panel" data-parallax-pattern="terraceWipe stageOut" data-parallax-measure=".section">
+          <div>
+            <h2 class="t-h2" data-reveal="title">Íbúðirnar</h2>
+            <p class="t-lead" data-reveal="text" style="margin-top:.8em">Einstaklings- og paraíbúðir upp í stórar fjölskylduíbúðir, hannaðar utan um dagsbirtu og útsýni yfir dalinn.</p>
+          </div>
+          <div class="ibudir__meta">
+            <div class="ibudir__nav">
+              <button class="arrow js-ib-prev" type="button" aria-label="Fyrri mynd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <button class="arrow js-ib-next" type="button" aria-label="Næsta mynd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <span class="t-small t-num"><span class="js-ib-i">1</span> / 3</span>
+            </div>
+            <a class="btn" href="#valmyndin"><span class="btn__label"><span>Skoða lausar íbúðir</span><span aria-hidden="true">Skoða lausar íbúðir</span></span></a>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 8b · Kaupin — SAFÍR20 + staðfestingargjald (client's own offers) -->
+    <section class="ch-kaup section section--wipe ui-light" id="kaupin" data-themed="ui-light"
+      data-parallax-pattern="terraceWipeMirror">
+      <div class="kaup__head px">
+        <p class="t-h3 breath__line" data-reveal="title">Fágun, gæði og vellíðan í fyrirrúmi.</p>
+      </div>
+      <div class="kaup__grid" data-reveal-group data-reveal-delay="90">
+        <article class="kaup__card" data-reveal="rise">
+          <span class="t-label t-smoke">Fjármögnun</span>
+          <h3 class="t-h3">SAFÍR20</h3>
+          <p class="t-small">Ef þú átt 10% útborgun leggur SAFÍR20 fram 20% viðbótarframlag sem greiðir leið fyrir 70% láni. Einnig má nýta SAFÍR20 til að lækka mánaðarlega greiðslubyrði.</p>
+        </article>
+        <article class="kaup__card" data-reveal="rise">
+          <span class="t-label t-smoke">Verðtrygging kaupanda</span>
+          <h3 class="t-h3">2% staðfestingargjald</h3>
+          <p class="t-small">Hægt er að festa verð íbúða í hluta D2 með 2% staðfestingargjaldi sem heldur verðinu óbreyttu fram að afhendingu 2026.</p>
+        </article>
+        <article class="kaup__card" data-reveal="rise">
+          <span class="t-label t-smoke">Samgöngur</span>
+          <h3 class="t-h3">Hopp deilibílar</h3>
+          <p class="t-small">Orkureiturinn er í samstarfi við Hopp deilibíla, sem mega leggja frítt í laus stæði í bílastæðahúsinu.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9 · Valmyndin -->
+    <section class="ch-sel section ui-light js-selector" id="valmyndin" data-themed="ui-light">
+      <div class="head">
+        <h2 class="t-h2" data-parallax-pattern="driftUpSlow" data-reveal="title">Íbúðir í sölu</h2>
+        <span class="t-small t-smoke t-num"><span class="js-units-count">0</span> íbúðir í vali</span>
+      </div>
+      <div class="sel__tools" data-reveal="fade-in">
+        <div class="sel__range js-range" data-k="size" aria-label="Stærð í fermetrum">
+          <span class="t-label t-smoke">Stærð, m²</span>
+          <div class="range__row">
+            <output class="t-small t-num js-range-lo">42</output>
+            <div class="range__track"><input class="js-range-min" type="range" min="42" max="249" value="42" step="1" aria-label="Lágmarksstærð"><input class="js-range-max" type="range" min="42" max="249" value="249" step="1" aria-label="Hámarksstærð"></div>
+            <output class="t-small t-num js-range-hi">249</output>
+          </div>
+        </div>
+        <div class="sel__range js-range" data-k="floor" aria-label="Hæð">
+          <span class="t-label t-smoke">Hæð</span>
+          <div class="range__row">
+            <output class="t-small t-num js-range-lo">1</output>
+            <div class="range__track"><input class="js-range-min" type="range" min="1" max="8" value="1" step="1" aria-label="Lágmarkshæð"><input class="js-range-max" type="range" min="1" max="8" value="8" step="1" aria-label="Hámarkshæð"></div>
+            <output class="t-small t-num js-range-hi">8</output>
+          </div>
+        </div>
+        <div class="sel__group" role="group" aria-label="Staða">
+          <button class="chip js-filter is-active" type="button" data-k="status" data-v="all">Allt</button>
+          <button class="chip js-filter" type="button" data-k="status" data-v="laus">Lausar</button>
+        </div>
+        <label class="sel__sort">
+          <span class="t-label t-smoke">Röðun</span>
+          <select class="js-sort-sel" aria-label="Röðun">
+            <option value="price-1">Verð (lægsta fyrst)</option>
+            <option value="price--1">Verð (hæsta fyrst)</option>
+            <option value="size-1">Stærð (minnsta fyrst)</option>
+            <option value="size--1">Stærð (stærsta fyrst)</option>
+            <option value="id-1" selected>Númer</option>
+          </select>
+        </label>
+        <button class="btn--underline js-reset" type="button"><span class="btn__u">Núllstilla</span></button>
+      </div>
+      <div class="ugrid js-units" role="list"></div>
+      <div class="units-more"><button class="btn btn--ghost js-more" type="button" hidden><span class="btn__label"><span>Sýna fleiri (<span class="js-more-n">9</span>)</span><span aria-hidden="true">Sýna fleiri</span></span></button></div>
+      <p class="js-units-empty t-smoke" hidden>Engin íbúð passar við valið. Prófaðu að rýmka síuna.</p>
+      <div class="units-foot">
+        <span class="t-small t-smoke">Gögnin eru raunveruleg sölugögn af orkureiturinn.is, sótt 24. ágúst 2026. Frumgerð: staðan uppfærist ekki í rauntíma.</span>
+        <button class="btn btn--ghost js-callback" type="button"><span class="btn__label"><span>Bóka skoðun</span><span aria-hidden="true">Bóka skoðun</span></span></button>
+      </div>
+    </section>
+
+    <!-- 10 · Kerfin -->
+    <section class="ch-kerfi section section--wipe wipe--flush ui-dark--deep" id="kerfin" data-themed="ui-dark"
+      data-parallax-pattern="terraceWipe">
+      <div class="sticky"><div class="sticky__layer">
+        <div class="kerfi__bg" data-parallax-pattern="backgroundMove"><img data-img="kerfi-detail" data-w="828 1440" alt="" aria-hidden="true"></div>
+        <span class="corner corner--tr t-label" data-parallax-pattern="stageOut" data-reveal="fade-in">Vottuð gæði</span>
+        <div class="kerfi__panel" data-parallax-pattern="stageOut">
+          <h2 class="t-h2" data-reveal="title">Kerfin</h2>
+        </div>
+        <div class="kerfi__copy" data-parallax-pattern="stageOut" data-reveal="text">
+          <p class="t-lead">Loftskiptakerfi í hverri íbúð, fyrsti íbúðareitur landsins með BREEAM Excellent umhverfisvottun, og byggt með það að markmiði að allar íbúðir verði Svansvottaðar.</p>
+          <div class="badges" style="margin-top:var(--spacing)">
+            <span class="badge">Byggt til Svansvottunar</span>
+            <span class="badge">BREEAM Excellent</span>
+            <span class="badge">Loftskipti í hverri íbúð</span>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 11 · Bílastæðahúsið -->
+    <section class="ch-parking section section--wipe ui-dark js-parking" id="bilastaedahusid" data-themed="ui-dark"
+      data-parallax-pattern="terraceWipeMirror" data-snap='[{"viewport":0,"element":0},{"viewport":100,"element":0}]'>
+      <div class="sticky"><div class="sticky__layer">
+        <div class="dalur__stage">
+          <div class="dalur__beat js-beat is-active"><img data-img="parking" data-w="828 1440" alt="Bílastæðahúsið undir Orkureitnum"></div>
+          <div class="dalur__beat js-beat"><img data-img="jardhaed" data-w="828 1440" alt="Verslun og þjónusta á jarðhæðum Orkureitsins"></div>
+        </div>
+        <div class="park__card" data-parallax-pattern="stageOut" data-parallax-measure=".section">
+          <div>
+            <span class="t-label t-smoke js-beat-eyebrow">Bílastæðahúsið</span>
+            <div class="park__numrow"><span class="park__num t-num js-park-num">73</span><span class="t-label js-park-unit">Íbúðum fylgir sérbílastæði</span></div>
+            <p class="t-small js-park-text" style="margin-top:12px">Bílastæðahús á tveimur hæðum neðanjarðar tengist öllum húsunum. Bílskúrar fylgja tíu stærstu íbúðunum og Hopp-deilibílar fá frí stæði.</p>
+          </div>
+          <div class="dalur__foot">
+            <div class="dalur__rules" aria-hidden="true"><span class="rule"><i class="js-rule-fill"></i></span><span class="rule"><i class="js-rule-fill"></i></span></div>
+            <div class="dalur__counter t-small t-num"><span class="js-beat-i">1</span><svg viewBox="0 0 5 10" aria-hidden="true"><path d="M4 1L1 9" stroke="currentColor" stroke-width="1" fill="none"/></svg><span>2</span></div>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 12 · Teymið -->
+    <section class="ch-team section section--wipe ui-light" id="teymid" data-themed="ui-light" data-parallax-pattern="terraceWipe">
+      <div class="px"><h2 class="t-h2" data-parallax-pattern="driftUpSlow" data-reveal="title">Teymið</h2></div>
+      <div class="team__row" data-reveal-group data-reveal-delay="90">
+        <div class="team__card" data-reveal="rise"><span class="t-label">Byggingaraðili</span><span class="t-h3">SAFÍR byggingar</span><span class="team__plus" aria-hidden="true">+</span></div>
+        <div class="team__card" data-reveal="rise"><span class="t-label">Arkitektúr</span><span class="t-h3">Nordic Office of Architecture</span><span class="team__plus" aria-hidden="true">+</span></div>
+        <div class="team__card" data-reveal="rise"><span class="t-label">Innanhússhönnun</span><span class="t-h3">Rut Káradóttir</span></div>
+        <div class="team__card" data-reveal="rise"><span class="t-label">Landslagsarkitektúr</span><span class="t-h3">Jón Rafnar Benjamínsson</span></div>
+      </div>
+    </section>
+
+    <!-- 13 · Fótur -->
+    <footer class="footer section ui-dark">
+      <div class="footer__band">
+        <span class="footer__word"><span class="o">O</span>RKUREITURINN</span>
+        <button class="btn js-callback" type="button"><span class="btn__label"><span>Hafa samband</span><span aria-hidden="true">Hafa samband</span></span></button>
+      </div>
+      <div class="footer__contact">
+        <div><span class="t-label t-smoke">Sími</span><a class="t-h3" href="tel:+3545475470">547 5470</a></div>
+        <div><span class="t-label t-smoke">Netfang</span><a class="t-h3" href="mailto:orkureiturinn@safir.is">orkureiturinn@safir.is</a></div>
+        <div><span class="t-label t-smoke">Kennitala</span><span class="t-h3 t-num">551021-1068</span></div>
+      </div>
+      <div class="footer__meta">
+        <span>© 2026 Orkureiturinn · SAFÍR byggingar</span>
+        <span>Frumgerð, ekki opinber vefur. <a href="https://orkureiturinn.is" target="_blank" rel="noopener">Núverandi vefur</a></span>
+        <a class="sndr" href="https://sndr-studio.pages.dev" target="_blank" rel="noopener" aria-label="Hannað af SNDR Studio"><span class="sndr__mark">SN<i>&#10022;</i>DR</span><span class="sndr__studio">STUDIO</span></a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- callback modal -->
+  <div id="callback" class="is-hidden" role="dialog" aria-modal="true" aria-label="Hafa samband" aria-hidden="true">
+    <div class="cb__panel">
+      <div class="cb__head">
+        <h2 class="t-h3">Hafa samband</h2>
+        <button class="btn--underline js-cb-close" type="button"><span class="btn__u">Loka</span></button>
+      </div>
+      <form novalidate>
+        <div class="cb__field"><label for="cb-name">Nafn</label><input id="cb-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="cb__field"><label for="cb-tel">Símanúmer</label><input id="cb-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="cb__field"><label for="cb-topic">Erindi</label>
+          <select id="cb-topic" name="topic"><option>Bóka skoðun</option><option>Fá söluyfirlit</option><option>Almenn fyrirspurn</option></select>
+        </div>
+        <button class="btn" type="submit"><span class="btn__label"><span>Senda fyrirspurn</span><span aria-hidden="true">Senda fyrirspurn</span></span></button>
+        <p class="cb__fine">Frumgerð: ekkert er sent og ekkert er vistað. Á raunverulegum vef færi fyrirspurnin beint til söluaðila SAFÍR.</p>
+      </form>
+      <div class="cb__done" hidden>
+        <p class="t-h3">Ekkert var sent.</p>
+        <p class="t-body">Þetta er frumgerð. Á raunverulegum vef hefði sölufulltrúi nú fengið fyrirspurnina þína og gæti svarað samdægurs.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/units.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

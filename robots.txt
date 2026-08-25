@@ -1,0 +1,3 @@
+# Frumgerð / prototype preview. Not the official Orkureiturinn website.
+User-agent: *
+Disallow: /
