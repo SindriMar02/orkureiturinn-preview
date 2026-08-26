@@ -1163,22 +1163,23 @@ const parkStage = (() => {
 const logoDock = (() => {
   const logo = $('.js-logo'), head = $('.js-intro-head'), bm = $('.js-intro-bookmark'), hdr = $('#header');
   if (!logo || !head || !bm) return { tick() {}, measure() {}, setK() {}, rect: null };
-  let ox = 0, oy = 0, sc = 1, ready = false, bandH = 0, hdrH = 50;
+  let sc = 1, ready = false, bandH = 0, hdrH = 50, slayPx = 20, restBottom = 1, l0 = { left: 0, bottom: 0 };
   let lastK = -1, lastPaper = null;
   const measure = () => {
     const t = logo.style.transform; logo.style.transform = 'none';
     const l = logo.getBoundingClientRect(), b = bm.getBoundingClientRect();
     logo.style.transform = t;
     if (!l.width || !b.width) { ready = false; logo.style.transform = ''; hdr.classList.remove('header--landing'); return; }
-    const slay = parseFloat(getComputedStyle(html).getPropertyValue('--slay')) || 20;
+    slayPx = parseFloat(getComputedStyle(html).getPropertyValue('--slay')) || 20;
     /* likova sizes the giant wordmark at 71.5% of the step, but their word is
        6 glyphs; ORKUREITURINN is 13, so also reserve the chevron's own column. */
-    const avail = Math.min(b.width * .84, b.width - 44 - slay * 3);
+    const avail = Math.min(b.width * .84, b.width - 44 - slayPx * 3);
     sc = avail / l.width;
-    ox = (b.left + slay) - l.left;
-    oy = (b.bottom - slay) - l.bottom;
+    l0 = { left: l.left, bottom: l.bottom };   /* fixed header: constant across scroll */
     bandH = head.offsetHeight;
     hdrH = hdr.offsetHeight || 50;
+    /* where the plate sits with no scroll and no transform — the k=1 reference */
+    restBottom = docTop(bm) + bm.offsetHeight;
     ready = true;
     /* tick() only calls setK when k CHANGES, but a resize changes sc/ox/oy while k
        stays put (it is 1 at scroll 0 either way) — so the guard skipped the re-apply
@@ -1186,16 +1187,47 @@ const logoDock = (() => {
        sides. Invalidate the memo so the next tick rewrites with the new geometry. */
     lastK = -1; lastPaper = null;
   };
-  const setK = k => {
-    if (!ready) return;
-    if (k < .002) { logo.style.transform = ''; hdr.classList.remove('header--landing'); return; }
+  /* ox/oy were measured ONCE, from the plate at rest. But the plate then translates
+     up as you scroll (introHead), so the cached target stopped matching where the plate
+     actually was and the wordmark visibly drifted out of it — worse scrubbing up and
+     down, because the error is a function of scroll position.
+     introHead moves the plate translateY(0 -> -101%) of its OWN height across exactly
+     one viewport, driven by the same t this dock uses, so the plate's live offset is
+     computable: no per-frame getBoundingClientRect (which would force a layout right
+     after the parallax writes) and no drift, because both sides use one formula. */
+  /* Read the plate's LIVE position every frame instead of trusting a cached offset.
+     The plate both scrolls with the page AND translates (introHead), so a cached or
+     analytically-modelled offset drifts — measured: the wordmark's gap to the plate
+     swung from +20px to -44px mid-scroll, which is the detachment. One rect read on
+     one element, after the parallax has written, is the price of them being locked
+     together by definition rather than by a formula that has to stay in step. */
+  const HANDOFF = .22;   /* the last fifth of the plate's travel is the hand-off */
+  const applyAt = (k, b) => {
+    if (k < .0005) { logo.style.transform = ''; hdr.classList.remove('header--landing'); return; }
     hdr.classList.add('header--landing');
-    logo.style.transform = `translate(${(ox * k).toFixed(1)}px,${(oy * k).toFixed(1)}px) scale(${(1 + (sc - 1) * k).toFixed(4)})`;
+    /* POSITION tracks the plate 1:1 — that is what makes it one entity. Lerping the
+       position toward the header (position * k) made the wordmark race ahead of the
+       plate and visibly separate: measured, the gap grew from 20px to 61px mid-scroll.
+       Only over the final HANDOFF of the travel does it blend to its header seat, and
+       because the plate has converged on the header by then the blend is a few px. */
+    const blend = k >= HANDOFF ? 0 : (HANDOFF - k) / HANDOFF;
+    const ease = blend * blend * (3 - 2 * blend);          /* smoothstep, no corner */
+    const tx = ((b.left + slayPx) - l0.left) * (1 - ease);
+    const ty = ((b.bottom - slayPx) - l0.bottom) * (1 - ease);
+    logo.style.transform = `translate(${tx.toFixed(2)}px,${ty.toFixed(2)}px) scale(${(1 + (sc - 1) * k).toFixed(4)})`;
   };
+  const setK = k => { if (ready) applyAt(k, bm.getBoundingClientRect()); };
   const tick = y => {
     if (!ready) return;
-    const k = 1 - clamp(y / VH);   /* matches introHead's one-viewport travel exactly */
-    if (Math.abs(k - lastK) > .002) { setK(k); lastK = k; }
+    /* Drive the dock from the PLATE's own position, not raw scroll. Keyed to scroll,
+       the wordmark began shrinking toward the header the instant you moved, so it left
+       the plate while the plate was still on screen — that is the "detaching". Keyed to
+       the plate, it rides along at full size and lands in the header exactly as the
+       plate's bottom edge reaches the header: one entity, and it scrubs both ways. */
+    const b = bm.getBoundingClientRect();
+    const span = (restBottom - hdrH) || 1;
+    const k = clamp((b.bottom - hdrH) / span);
+    if (Math.abs(k - lastK) > .0005) { applyAt(k, b); lastK = k; }
     /* the band translates 0 → -101% across one viewport, so its bottom edge is
        computable — no per-frame getBoundingClientRect, and it flips exactly when
        the white step stops covering the header rather than a guessed threshold */
