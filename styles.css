@@ -976,4 +976,11 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
   /* "LANDSLAGSARKITEKTÚR" is long enough that its tracking pushed it past the card
      edge in the 2-up team grid */
   .team__card .t-label{font-size:9px;letter-spacing:.05em}
+  /* 44pt tap targets. A later base rule sets width:clamp(30px,…) on the burger and
+     padding:0 on the logo, so both belong here where nothing can undo them. The logo
+     grows its hit area with a pseudo-element instead of padding — padding would move
+     the giant wordmark in the plate, which the dock measures. */
+  .burger{width:44px;align-items:center}
+  .burger i,.burger span{width:30px}
+  .header__logo::after{content:'';position:absolute;inset:-15px -10px;pointer-events:auto}
 }
