@@ -552,10 +552,6 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .dalur__copy{right:auto;left:var(--pad);top:calc(var(--header-h) + var(--spacing));transform:none;width:min(78vw,420px)}
   .ch-map{height:340svh}
   .map__card{width:100%;min-height:0;max-height:36svh;left:0;bottom:0;gap:8px}
-  /* the card is opaque and bottom-anchored, so it was sitting straight on top of the
-     ORKUREITURINN pin. End the map ABOVE the card instead of behind it: the sheet then
-     centres its focal point in the area that is actually visible. */
-  .mapx{inset:0 0 36svh 0}
   /* The map sheet is a 2048x1280 box sized by WIDTH, which on a portrait phone is
      402x251 inside a 714px-tall pinned layer — hence the dark bands above and below
      it. Size it by HEIGHT here so it always covers; the extra width is clipped by
@@ -952,3 +948,15 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
 .sndr__mark i{font-style:normal;color:#e8a05c}
 .sndr__studio{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:10.5px;letter-spacing:.1em;opacity:.85;line-height:1}
 .sndr:hover{color:var(--c-paper)}
+
+/* ============================================================
+   MOBILE OVERRIDES OF LAST RESORT
+   These must win over every earlier rule, so they live at the end of the file.
+   (Three fixes this session silently did nothing because a base rule appeared
+   LATER in the stylesheet and re-set the property.)
+   ============================================================ */
+@media (max-width:767.98px){
+  /* end the map above the opaque card instead of behind it, so the ORKUREITURINN
+     pin is not covered and the sheet centres on the visible area */
+  .mapx{inset:0 0 36svh 0}
+}
