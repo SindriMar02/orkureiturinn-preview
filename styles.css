@@ -587,7 +587,9 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
   /* had left:var(--pad) AND width:100%, so it overflowed the right edge by exactly the
      padding and read as off-centre */
-  .arch__card{left:0;right:0;width:auto;top:auto;bottom:0;max-height:56svh}
+  .arch__card{left:0;right:0;width:auto;top:calc(var(--header-h) + 8px);bottom:auto;max-height:44svh;overflow:auto}
+  /* 44pt minimum tap target for the beat arrows */
+  .arrow--sm{width:44px;height:44px}
   .arch__card figure{width:44%}
   /* the copy was pinned at 66% of the layer, which pushed its badges off the bottom of
      a phone screen; anchor it to the bottom and give it a scrim so it stays legible

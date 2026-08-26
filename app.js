@@ -1047,22 +1047,37 @@ const archStage = (() => {
   let fi = 0, swapT = 0;
   const GA = geo.track(root);
   const slides = $$('.arch__slide', root);
+  /* The slides belong to seqBeats (this section is .js-seq2) and are driven by scroll,
+     so toggling is-active here was overwritten on the very next frame — the counter
+     moved and the picture did not. Let the arrows SCROLL to the beat instead: the one
+     scroll driver stays in charge, the picture changes, and the fact below always
+     matches the image above it. */
+  const goToBeat = i => {
+    const { top, h } = GA;
+    if (!h) return;
+    const n = Math.max(1, slides.length);
+    const target = Math.round(top + (h - VH) * ((clamp(i, 0, n - 1) + .5) / n));
+    scroller.scrollToEl ? window.scrollTo({ top: target, behavior: reduced ? 'auto' : 'smooth' })
+                        : window.scrollTo(0, target);
+  };
   const show = k => {
     fi = (k + list.length) % list.length;
-    if (slides.length) { const si = fi % slides.length; slides.forEach((s, i) => s.classList.toggle('is-active', i === si)); }
     facts.classList.add('is-swapping');
     clearTimeout(swapT);
     swapT = setTimeout(() => { factEl.textContent = list[fi]; if (iEl) iEl.textContent = fi + 1; facts.classList.remove('is-swapping'); }, 220);
   };
-  $('.js-arch-prev', root)?.addEventListener('click', () => show(fi - 1));
-  $('.js-arch-next', root)?.addEventListener('click', () => show(fi + 1));
+  $('.js-arch-prev', root)?.addEventListener('click', () => goToBeat(fi - 1));
+  $('.js-arch-next', root)?.addEventListener('click', () => goToBeat(fi + 1));
   const word = $('.js-arch-word', root), wordText = $('.js-arch-wordtext', root);
   if (word) word.addEventListener('click', () => { const open = word.getAttribute('aria-expanded') === 'true'; word.setAttribute('aria-expanded', String(!open)); wordText.hidden = open; });
   const tick = y => {
     const { top, h } = GA;
     if (!h || y < top - VH || y > top + h) return;
     const p = clamp((y - top) / (h - VH || 1));
-    if (facts) facts.classList.toggle('is-on', p > .16 && p < .5);
+    const n = Math.max(1, slides.length);
+    const bi = Math.min(n - 1, Math.floor(p * n));
+    if (bi !== fi) show(bi);
+    if (facts) facts.classList.toggle('is-on', p > .08 && p < .94);
     if (card) card.classList.toggle('is-in', p >= .55 && p < .85);
   };
   return { tick };
