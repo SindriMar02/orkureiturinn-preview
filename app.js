@@ -216,12 +216,13 @@ const snapUnit = (v, perUnit) => {
   const px = v * perUnit;
   return (Math.round(px * PXDPR) / PXDPR) / perUnit;
 };
-const snapPx = s => s
-  .replace(/(-?\d*\.\d+)px/g, (m, n) => snapUnit(parseFloat(n), 1) + 'px')
-  /* svh movers (the intro text and class box) land off-grid too - 40 of 320
-     sampled text elements - so convert through the viewport height, snap, and
-     convert back rather than leaving them on fractional pixels. */
-  .replace(/(-?\d*\.\d+)svh/g, (m, n) => (VH ? snapUnit(parseFloat(n), VH / 100) : parseFloat(n)) + 'svh');
+/* ONE pass, not two. This runs on every managed element on every frame, and two
+   full-string regex passes were enough to put long frames back into chapters that
+   had none. svh movers (the intro text and class box) are snapped through the
+   viewport height so they land on the device grid like the px ones do. */
+const FRAC_UNIT = /(-?\d*\.\d+)(px|svh)/g;
+const snapPx = s => s.replace(FRAC_UNIT, (m, n, u) =>
+  (u === 'px' ? snapUnit(+n, 1) : (VH ? snapUnit(+n, VH / 100) : +n)) + u);
 const PATTERNS = {
   /* generic (inherited) */
   sectionOutTiny: { measure: 'self', keys: el => el.classList.contains('sticky--under-next')
@@ -1219,6 +1220,16 @@ const logoDock = (() => {
   const setK = k => { if (ready) applyAt(k, bm.getBoundingClientRect()); };
   const tick = y => {
     if (!ready) return;
+    /* The rect read below is a FORCED LAYOUT, and it runs after the parallax has
+       written transforms — harmless during the intro, but it was running on every
+       frame of the whole page and put 8 long frames back into chapters that had none.
+       Once we are a viewport past the intro the plate cannot be on screen, so settle
+       the docked state once and stop measuring. */
+    if (y > VH * 1.4) {
+      if (lastK !== 0) { logo.style.transform = ''; hdr.classList.remove('header--landing'); lastK = 0; }
+      if (lastPaper !== false) { hdr.classList.remove('header--on-paper'); html.classList.remove('on-paper'); lastPaper = false; }
+      return;
+    }
     /* Drive the dock from the PLATE's own position, not raw scroll. Keyed to scroll,
        the wordmark began shrinking toward the header the instant you moved, so it left
        the plate while the plate was still on screen — that is the "detaching". Keyed to
