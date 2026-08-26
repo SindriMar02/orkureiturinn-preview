@@ -762,7 +762,11 @@ html:not(.no-hover) .btn--square:hover{background:var(--c-ink);color:var(--c-pap
 
 @media (min-width:1440px){:root{--slay:30px;--gg:30px;--head-h:310px;--bookmark-h:130px;--block-static:400px;--logo-offset-y:364px;--header-h:70px}}
 @media (max-width:767.98px){
-  :root{--slay:20px;--gg:10px;--head-h:30svh;--bookmark-h:64px;--block-static:120px;--logo-offset-y:30.5svh}
+  /* On desktop the cream band is ~49% of a WIDE screen and the giant wordmark fills
+     its lower edge, so it reads as a deliberate step. On a phone the same band is a
+     230px EMPTY block above a small wordmark, which reads as a broken header. Shrink
+     it to a title plate and give the render the screen. */
+  :root{--slay:20px;--gg:10px;--head-h:7svh;--bookmark-h:62px;--block-static:120px;--logo-offset-y:9svh}
   .intro__bookmark{width:min(88vw,420px)}
   .ch-intro{height:320svh}
   .intro__text{left:0;width:100%;top:auto;bottom:34%}
