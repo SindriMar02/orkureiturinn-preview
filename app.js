@@ -225,6 +225,12 @@ const PATTERNS = {
   /* likova terrace wipe: the incoming chapter rises under a stepped clip-path whose
      steps land on the grid columns; scrubbed until the chapter top reaches the
      viewport top. Same point count in both keys so mixStr interpolates numerically. */
+  /* same keyframes as terraceWipe but WITHOUT mobile:true, so the engine drops it on
+     phones — for elements where the clip is decoration, not the element's reason to exist */
+  terraceWipeDesktop: { measure: 'self', keys: () => [
+      { v: 130, e: 0, p: { 'clip-path': 'polygon(0% 128svh,25% 128svh,25% 107svh,50% 107svh,50% 86svh,75% 86svh,75% 65svh,100% 65svh,100% 100%,0% 100%)' } },
+      { v: 0, e: 0, p: { 'clip-path': 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)' } }],
+    clamp: true },
   terraceWipe: { measure: 'self', keys: () => [
       { v: 130, e: 0, p: { 'clip-path': 'polygon(0% 128svh,25% 128svh,25% 107svh,50% 107svh,50% 86svh,75% 86svh,75% 65svh,100% 65svh,100% 100%,0% 100%)' } },
       { v: 0, e: 0, p: { 'clip-path': 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)' } }],
