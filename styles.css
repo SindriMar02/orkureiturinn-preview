@@ -596,7 +596,11 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .kerfi__copy{top:auto;bottom:calc(var(--spacing) * 1.1);left:0;right:0;width:auto;
     padding:16px var(--pad) 0;
     background:linear-gradient(180deg,rgba(23,24,27,0),rgba(23,24,27,.86) 22%)}
-  .kerfi__copy .badge{background:rgba(23,24,27,.7)}
+  .kerfi__copy .badge{background:rgba(23,24,27,.7);padding:7px 11px;font-size:10.5px;letter-spacing:.05em}
+  /* three stacked badges did not fit between the KERFIN band and the bottom of the
+     screen, so the last one was clipped; wrap them into a compact row instead */
+  .kerfi__copy .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px!important}
+  .kerfi__copy .t-lead{font-size:15px;line-height:1.42}
   .plan__btn{left:12px;bottom:-16px}
 }
 
