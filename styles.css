@@ -966,7 +966,7 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
   /* the awning is ink by default (it must be, over dark sections), but the landing
      opens on a cream plate — match it at the top so the plate reaches the very top of
      the screen instead of sitting under a dark bar */
-  html.at-top .awning{background:var(--c-paper)}
+  html.at-top .awning,html.on-paper .awning{background:var(--c-paper)}
   /* the 110px icon and its gaps were most of the card's height */
   .dalur__icon{width:58px;height:58px}
   .dalur__card .dalur__rules{margin-top:10px}

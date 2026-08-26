@@ -1228,11 +1228,15 @@ const logoDock = (() => {
     const span = (restBottom - hdrH) || 1;
     const k = clamp((b.bottom - hdrH) / span);
     if (Math.abs(k - lastK) > .0005) { applyAt(k, b); lastK = k; }
-    /* the band translates 0 → -101% across one viewport, so its bottom edge is
-       computable — no per-frame getBoundingClientRect, and it flips exactly when
-       the white step stops covering the header rather than a guessed threshold */
-    const paper = bandH * (1 - 1.01 * clamp(y / VH)) > hdrH + 2;
-    if (paper !== lastPaper) { hdr.classList.toggle('header--on-paper', paper); lastPaper = paper; }
+    /* the plate's live bottom edge IS the answer to "is the white step still covering
+       the top" — no modelling, and it also drives the awning so the ink strip never
+       reappears above a plate that is still on screen */
+    const paper = b.bottom > hdrH + 2;
+    if (paper !== lastPaper) {
+      hdr.classList.toggle('header--on-paper', paper);
+      html.classList.toggle('on-paper', paper);
+      lastPaper = paper;
+    }
   };
   return { tick, measure, setK, get rect() { return logo.getBoundingClientRect(); } };
 })();
