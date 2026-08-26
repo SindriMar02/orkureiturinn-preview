@@ -8,6 +8,13 @@
    reveals, armed-then-run transitions. No WebGL in this build. */
 
 const html = document.documentElement;
+/* Safari restores the previous scroll position when a visitor returns to the same URL,
+   so the page came up mid-hero — "it lands like it's been swiped down". The preloader
+   then finishes over an already-scrolled page. Own the entry point: no automatic
+   restore, and start at the top unless the URL actually asks for a section. */
+try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+const wantsAnchor = () => { const h = location.hash.replace('#', ''); return h && h !== 'skip-preloader' && document.getElementById(h); };
+if (!wantsAnchor()) window.scrollTo(0, 0);
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -241,11 +248,11 @@ const PATTERNS = {
     clamp: true, mobile: true },
 
   /* intro — likova keyframes verbatim */
-  introHead: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(0%)' } }, { v: -100, e: 0, p: { transform: 'translateY(-101%)' } }], clamp: true },
-  introText: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { opacity: '1', transform: 'translateY(0svh)' } }, { v: -50, e: 0, p: { opacity: '0', transform: 'translateY(-5svh)' } }], clamp: true },
-  introContent: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { opacity: '0' } }, { v: -100, e: 0, p: { opacity: '1' } }, { v: -200, e: 0, p: { opacity: '0' } }], clamp: true },
-  introContentText: { measure: 'closest:.section', keys: () => [{ v: -50, e: 0, p: { transform: 'translateY(5svh)' } }, { v: -100, e: 0, p: { transform: 'translateY(0svh)' } }, { v: -200, e: 0, p: { transform: 'translateY(-10svh)' } }], clamp: true },
-  introClass: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(10svh)' } }, { v: -100, e: 0, p: { transform: 'translateY(0svh)' } }, { v: -200, e: 0, p: { transform: 'translateY(-10svh)' } }], clamp: true },
+  introHead: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(0%)' } }, { v: -100, e: 0, p: { transform: 'translateY(-101%)' } }], clamp: true, mobile: true },
+  introText: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { opacity: '1', transform: 'translateY(0svh)' } }, { v: -50, e: 0, p: { opacity: '0', transform: 'translateY(-5svh)' } }], clamp: true, mobile: true },
+  introContent: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { opacity: '0' } }, { v: -100, e: 0, p: { opacity: '1' } }, { v: -200, e: 0, p: { opacity: '0' } }], clamp: true, mobile: true },
+  introContentText: { measure: 'closest:.section', keys: () => [{ v: -50, e: 0, p: { transform: 'translateY(5svh)' } }, { v: -100, e: 0, p: { transform: 'translateY(0svh)' } }, { v: -200, e: 0, p: { transform: 'translateY(-10svh)' } }], clamp: true, mobile: true },
+  introClass: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(10svh)' } }, { v: -100, e: 0, p: { transform: 'translateY(0svh)' } }, { v: -200, e: 0, p: { transform: 'translateY(-10svh)' } }], clamp: true, mobile: true },
   introBuilding: { measure: 'closest:.section', keys: () => [
       { v: 0, e: 0, p: { transform: 'translateY(66%)' } },
       { v: -100, e: 0, p: { transform: 'translateY(50%)' } },
@@ -258,8 +265,8 @@ const PATTERNS = {
   ghostBeat: { measure: 'closest:.section', keys: () => [{ v: -70, e: 0, p: { opacity: '0', transform: 'translateY(-44%) translateY(10svh)' } }, { v: -150, e: 0, p: { opacity: '1', transform: 'translateY(-50%) translateY(4svh)' } }, { v: -330, e: 0, p: { opacity: '1', transform: 'translateY(-50%) translateY(-8svh)' } }], clamp: true },
   heroLights: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { opacity: '0' } }, { v: -60, e: 0, p: { opacity: '1' } }], clamp: true, mobile: true },
   heroDrift: { measure: 'closest:.section', target: 'img', keys: () => [{ v: 0, e: 0, p: { transform: 'scale(1.06) translateY(0svh)' } }, { v: -340, e: 0, p: { transform: 'scale(1.13) translateY(-6svh)' } }], clamp: true, mobile: true },
-  introSticky: { measure: 'closest:.section', keys: () => [{ v: 200, e: 100, p: { transform: 'translateY(0svh)' } }, { v: 100, e: 100, p: { transform: 'translateY(-25svh)' } }], clamp: true },
-  heroCard: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(0)' } }, { v: -120, e: 0, p: { transform: 'translateY(-24svh)' } }], clamp: true },
+  introSticky: { measure: 'closest:.section', keys: () => [{ v: 200, e: 100, p: { transform: 'translateY(0svh)' } }, { v: 100, e: 100, p: { transform: 'translateY(-25svh)' } }], clamp: true, mobile: true },
+  heroCard: { measure: 'closest:.section', keys: () => [{ v: 0, e: 0, p: { transform: 'translateY(0)' } }, { v: -120, e: 0, p: { transform: 'translateY(-24svh)' } }], clamp: true, mobile: true },
 
   /* generic chapter verbs */
   riseSoft: { measure: 'closest:.section', keys: () => [{ v: 100, e: 0, p: { transform: 'translateY(6svh)', opacity: '0' } }, { v: 55, e: 0, p: { transform: 'translateY(0svh)', opacity: '1' } }], clamp: true },
@@ -1308,6 +1315,7 @@ const loop = (now) => {
 
 const startPage = () => {
   if (running) return; running = true;
+  if (!wantsAnchor() && window.scrollY) window.scrollTo(0, 0);
   measureAll();
   reveal.start();
   measureAll();          // heights settled after the split pass
