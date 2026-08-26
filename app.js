@@ -1035,8 +1035,10 @@ const archStage = (() => {
   const factEl = $('.js-arch-fact', root), iEl = $('.js-arch-i', root);
   let fi = 0, swapT = 0;
   const GA = geo.track(root);
+  const slides = $$('.arch__slide', root);
   const show = k => {
     fi = (k + list.length) % list.length;
+    if (slides.length) { const si = fi % slides.length; slides.forEach((s, i) => s.classList.toggle('is-active', i === si)); }
     facts.classList.add('is-swapping');
     clearTimeout(swapT);
     swapT = setTimeout(() => { factEl.textContent = list[fi]; if (iEl) iEl.textContent = fi + 1; facts.classList.remove('is-swapping'); }, 220);

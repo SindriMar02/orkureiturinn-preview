@@ -586,7 +586,17 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .header__logo{padding:14px 0}
   .line-tab{min-height:56px}
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
-  .arch__card{width:100%;top:auto;bottom:0;max-height:56svh}
+  /* had left:var(--pad) AND width:100%, so it overflowed the right edge by exactly the
+     padding and read as off-centre */
+  .arch__card{left:0;right:0;width:auto;top:auto;bottom:0;max-height:56svh}
+  .arch__card figure{width:44%}
+  /* the copy was pinned at 66% of the layer, which pushed its badges off the bottom of
+     a phone screen; anchor it to the bottom and give it a scrim so it stays legible
+     over the photograph */
+  .kerfi__copy{top:auto;bottom:calc(var(--spacing) * 1.1);left:0;right:0;width:auto;
+    padding:16px var(--pad) 0;
+    background:linear-gradient(180deg,rgba(23,24,27,0),rgba(23,24,27,.86) 22%)}
+  .kerfi__copy .badge{background:rgba(23,24,27,.7)}
   .plan__btn{left:12px;bottom:-16px}
 }
 
