@@ -1043,7 +1043,8 @@ const archStage = (() => {
   const root = $('#arkitekturinn'); if (!root) return { tick() {} };
   const facts = $('.js-arch-facts', root), card = $('.js-arch-card', root);
   const list = facts ? JSON.parse(facts.dataset.facts) : [];
-  const factEl = $('.js-arch-fact', root), iEl = $('.js-arch-i', root);
+  const factEl = $('.js-arch-fact', root), iEl = $('.js-arch-i', root), nEl = $('.js-arch-n', root);
+  if (nEl) nEl.textContent = String(list.length);   /* never let the total drift from the data */
   let fi = 0, swapT = 0;
   const GA = geo.track(root);
   const slides = $$('.arch__slide', root);
