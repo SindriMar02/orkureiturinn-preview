@@ -557,6 +557,23 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
      it. Size it by HEIGHT here so it always covers; the extra width is clipped by
      .mapx's overflow and the pan percentages stay relative to the box. */
   .mapx__box{width:auto;height:100%;min-width:100%}
+  /* a hair of overscan so the panned+scaled sheet can never leave a bare edge */
+  .mapx__sheet{transform:scale(1.06)}
+  /* 2 columns and shorter cards: one column of 9 full-height cards was ~3000px of
+     dead scroll on a phone */
+  .ugrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-left:var(--pad);margin-right:var(--pad)}
+  .ucard{min-height:0}
+  .ucard__plan{aspect-ratio:1/1}
+  /* the photo must sit ABOVE the tabs, or tapping a line changes something the
+     visitor cannot see and the section reads as dead */
+  .lines__wrap{display:flex;flex-direction:column}
+  .lines__stagebox{order:-1;margin-bottom:calc(var(--spacing) * 1.1)}
+  /* beat copy sits over a bright photo here: give it a scrim so it stays legible */
+  .dalur__copy{background:linear-gradient(180deg,rgba(23,24,27,.72),rgba(23,24,27,0));padding:14px 16px 26px;border-radius:2px;left:0;right:0;width:auto}
+  /* 44pt minimum tap targets */
+  .burger{min-height:44px;justify-content:center}
+  .header__logo{padding:14px 0}
+  .line-tab{min-height:56px}
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
   .arch__card{width:100%;top:auto;bottom:0;max-height:56svh}
   .plan__btn{left:12px;bottom:-16px}
