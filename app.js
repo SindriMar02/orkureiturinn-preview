@@ -1189,7 +1189,7 @@ const logoDock = (() => {
   };
   const tick = y => {
     if (!ready) return;
-    const k = 1 - clamp(y / (VH * .85));
+    const k = 1 - clamp(y / VH);   /* matches introHead's one-viewport travel exactly */
     if (Math.abs(k - lastK) > .002) { setK(k); lastK = k; }
     /* the band translates 0 → -101% across one viewport, so its bottom edge is
        computable — no per-frame getBoundingClientRect, and it flips exactly when

@@ -547,7 +547,7 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 .js-arch-word[aria-expanded="true"] .arch__plus{transform:rotate(45deg)}
 
 @media (max-width:767.98px){
-  .dalur__card{left:0;width:100%;height:auto;min-height:0;max-height:40svh;top:auto;bottom:0;transform:none;justify-content:flex-start;gap:10px;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
+  .dalur__card{left:0;width:100%;height:auto;min-height:0;max-height:32svh;top:auto;bottom:0;transform:none;justify-content:flex-start;gap:8px;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
   .dalur__icon{width:72px;height:72px}
   .dalur__copy{right:auto;left:var(--pad);top:calc(var(--header-h) + var(--spacing));transform:none;width:min(78vw,420px)}
   .ch-map{height:340svh}
@@ -576,7 +576,10 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .lines__wrap{display:flex;flex-direction:column}
   .lines__stagebox{order:-1;margin-bottom:calc(var(--spacing) * 1.1)}
   /* beat copy sits over a bright photo here: give it a scrim so it stays legible */
-  .dalur__copy{background:linear-gradient(180deg,rgba(23,24,27,.72),rgba(23,24,27,0));padding:14px 16px 26px;border-radius:2px;left:0;right:0;width:auto}
+  /* the scrim started BELOW the header, leaving an untinted strip at the top of the
+     photo; run it from the very top of the layer and pad the text clear of the header */
+  .dalur__copy{background:linear-gradient(180deg,rgba(23,24,27,.80),rgba(23,24,27,.55) 46%,rgba(23,24,27,0));
+    left:0;right:0;width:auto;top:0;padding:calc(var(--header-h) + 16px) var(--pad) 34px}
   /* 44pt minimum tap targets */
   .burger{min-height:44px;justify-content:center}
   .header__logo{padding:14px 0}
@@ -960,6 +963,9 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
    LATER in the stylesheet and re-set the property.)
    ============================================================ */
 @media (max-width:767.98px){
+  /* the 110px icon and its gaps were most of the card's height */
+  .dalur__icon{width:58px;height:58px}
+  .dalur__card .dalur__rules{margin-top:10px}
   /* end the map above the opaque card instead of behind it, so the ORKUREITURINN
      pin is not covered and the sheet centres on the visible area */
   .mapx{inset:0 0 36svh 0}
