@@ -547,11 +547,15 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 .js-arch-word[aria-expanded="true"] .arch__plus{transform:rotate(45deg)}
 
 @media (max-width:767.98px){
-  .dalur__card{left:0;width:100%;height:auto;min-height:0;max-height:52svh;top:auto;bottom:0;transform:none;justify-content:flex-start;gap:14px;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
+  .dalur__card{left:0;width:100%;height:auto;min-height:0;max-height:40svh;top:auto;bottom:0;transform:none;justify-content:flex-start;gap:10px;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
   .dalur__icon{width:72px;height:72px}
   .dalur__copy{right:auto;left:var(--pad);top:calc(var(--header-h) + var(--spacing));transform:none;width:min(78vw,420px)}
   .ch-map{height:340svh}
-  .map__card{width:100%;min-height:0;max-height:46svh;left:0;bottom:0;gap:10px}
+  .map__card{width:100%;min-height:0;max-height:36svh;left:0;bottom:0;gap:8px}
+  /* the card is opaque and bottom-anchored, so it was sitting straight on top of the
+     ORKUREITURINN pin. End the map ABOVE the card instead of behind it: the sheet then
+     centres its focal point in the area that is actually visible. */
+  .mapx{inset:0 0 36svh 0}
   /* The map sheet is a 2048x1280 box sized by WIDTH, which on a portrait phone is
      402x251 inside a 714px-tall pinned layer — hence the dark bands above and below
      it. Size it by HEIGHT here so it always covers; the extra width is clipped by
