@@ -983,4 +983,6 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
   .burger{width:44px;align-items:center}
   .burger i,.burger span{width:30px}
   .header__logo::after{content:'';position:absolute;inset:-15px -10px;pointer-events:auto}
+  /* the "Núllstilla" reset link was a 23px-tall tap target */
+  .btn--underline{min-height:44px;display:inline-flex;align-items:center}
 }
