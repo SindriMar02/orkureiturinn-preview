@@ -562,7 +562,13 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   /* 2 columns and shorter cards: one column of 9 full-height cards was ~3000px of
      dead scroll on a phone */
   .ucard{min-height:0}
-  .ucard__plan{aspect-ratio:1/1}
+  .ucard__plan{aspect-ratio:1/1;overflow:hidden;display:grid;place-items:center}
+  .ucard__plan img{max-width:100%;max-height:100%;object-fit:contain}
+  .ucard__head{gap:1px;padding:10px 10px 8px}
+  .ucard__head span{gap:1px}
+  .ucard__head b{white-space:nowrap;font-size:13px}
+  .ucard__head i{font-size:8.5px;letter-spacing:.06em}
+  .ucard__foot{padding:8px 10px 10px}
   .ucard__head{gap:2px}
   .ucard__head i{font-size:9px}
   /* the photo must sit ABOVE the tabs, or tapping a line changes something the
