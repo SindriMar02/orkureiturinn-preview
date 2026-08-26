@@ -1232,7 +1232,23 @@ const syncSmooth = () => {
   html.classList.toggle('no-scroll-smooth', !SMOOTH);
   scroller.resync();
 };
-const onResize = () => { clearTimeout(resizeT); resizeT = setTimeout(() => { syncSmooth(); parallax.build(); measureAll(); }, 120); };
+/* iOS Safari fires `resize` every time the URL bar collapses or expands DURING a
+   scroll, and parallax.build() clears every inline transform before rebuilding —
+   so the whole page visibly came apart mid-scroll on a phone, and pinch-zoom did
+   the same. A rebuild is only needed when the BREAKPOINT could have changed;
+   a height-only change just needs fresh measurements. */
+let lastW = innerWidth, lastH = innerHeight;
+const onResize = () => {
+  clearTimeout(resizeT);
+  const w = innerWidth, h = innerHeight;
+  const widthChanged = w !== lastW;
+  const bigHeightChange = Math.abs(h - lastH) > lastH * 0.25;
+  lastW = w; lastH = h;
+  resizeT = setTimeout(() => {
+    if (widthChanged || bigHeightChange) { syncSmooth(); parallax.build(); }
+    measureAll();
+  }, 120);
+};
 window.addEventListener('resize', onResize);
 
 /* The render loop is rAF-driven and skips idle frames by comparing scrollY to the

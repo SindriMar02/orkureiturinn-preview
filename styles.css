@@ -216,7 +216,7 @@ html.with-modal .c-scrollbar{display:none}
    ============================================================ */
 .section{position:relative;display:flow-root}   /* flow-root: negative-margin stickies must not collapse through */
 .sticky{position:relative;display:grid;grid-template-columns:minmax(0,1fr);height:100%}  /* minmax(0,1fr): an auto column sizes to max-content; height:100% — the sticky needs the CHAPTER height or the layer never pins (Holt lore) */
-.sticky__layer{position:sticky;top:0;height:100svh;min-width:0;overflow:hidden}
+.sticky__layer{position:sticky;top:0;height:100svh;height:100dvh;min-width:0;overflow:hidden}
 .px{padding-left:var(--pad);padding-right:var(--pad)}
 .section--wipe{margin-top:-100svh;z-index:2;will-change:clip-path}
 .bg-media{position:absolute;inset:0;overflow:hidden}
@@ -490,7 +490,7 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
    SWARM PASS 1 — B (dalur env-anatomy + map chapter) + C (plan/arch)
    ============================================================ */
 /* dalur: environment card — ink box, centered-left, 48vw, L-step cut bottom-right */
-.dalur__card{position:absolute;left:calc(var(--pad) * .45);top:50%;transform:translateY(-50%);z-index:3;background:var(--c-ink);color:var(--c-paper);width:min(48vw,640px);height:min(61vh,560px);padding:calc(var(--spacing) * 1.1);display:flex;flex-direction:column;justify-content:space-between;clip-path:polygon(0 0,100% 0,100% calc(100% - 120px),50% calc(100% - 120px),50% 100%,0 100%)}
+.dalur__card{position:absolute;left:calc(var(--pad) * .45);top:50%;transform:translateY(-50%);z-index:3;background:var(--c-ink);color:var(--c-paper);width:min(48vw,640px);height:min(61svh,560px);padding:calc(var(--spacing) * 1.1);display:flex;flex-direction:column;justify-content:space-between;clip-path:polygon(0 0,100% 0,100% calc(100% - 120px),50% calc(100% - 120px),50% 100%,0 100%)}
 .dalur__icon{width:110px;height:110px;color:rgba(245,244,242,.85)}
 .dalur__icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.1}
 .dalur__foot{width:46%;display:flex;flex-direction:column;gap:12px}
@@ -510,7 +510,7 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 
 /* map chapter (accessibility anatomy) */
 .ch-map{height:400svh}
-.map__card{position:absolute;left:var(--pad);bottom:calc(var(--spacing) * 1.2);z-index:3;background:var(--c-paper);color:var(--c-text-dark);width:min(31.5vw,430px);min-height:min(56vh,420px);padding:calc(var(--spacing) * 1);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.map__card{position:absolute;left:var(--pad);bottom:calc(var(--spacing) * 1.2);z-index:3;background:var(--c-paper);color:var(--c-text-dark);width:min(31.5vw,430px);min-height:min(56svh,420px);padding:calc(var(--spacing) * 1);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
 .map__num-row{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing)}
 .map__num{font-size:clamp(72px,8.5vw,120px);font-weight:400;line-height:.9;letter-spacing:-.03em;transition:opacity .25s var(--ease-house)}
 .map__unit{padding-top:10px;text-align:right}
@@ -537,7 +537,7 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 .arrow--sm{width:40px;height:40px}
 .arrow--sm svg{width:16px;height:16px}
 .arch__facts .arrow{box-shadow:inset 0 0 0 1px rgba(245,244,242,.3)}
-.arch__card{position:absolute;left:var(--pad);top:calc(var(--header-h) + var(--spacing));z-index:3;background:var(--c-paper);color:var(--c-text-dark);padding:calc(var(--spacing) * 1.1);width:min(39.5vw,505px);max-height:72vh;clip-path:polygon(0 0,70% 0,70% 60px,100% 60px,100% 100%,0 100%);opacity:0;transform:translateY(4svh);transition:opacity .5s var(--ease-house),transform .5s var(--ease-house);pointer-events:none}
+.arch__card{position:absolute;left:var(--pad);top:calc(var(--header-h) + var(--spacing));z-index:3;background:var(--c-paper);color:var(--c-text-dark);padding:calc(var(--spacing) * 1.1);width:min(39.5vw,505px);max-height:72svh;clip-path:polygon(0 0,70% 0,70% 60px,100% 60px,100% 100%,0 100%);opacity:0;transform:translateY(4svh);transition:opacity .5s var(--ease-house),transform .5s var(--ease-house);pointer-events:none}
 .arch__card.is-in{opacity:1;transform:none;pointer-events:auto}
 .arch__card figure{margin:var(--spacing) 0 0;width:52%}
 .arch__card figure img{aspect-ratio:1;object-fit:cover;width:100%}
@@ -547,13 +547,13 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 .js-arch-word[aria-expanded="true"] .arch__plus{transform:rotate(45deg)}
 
 @media (max-width:767.98px){
-  .dalur__card{left:0;width:88vw;height:auto;min-height:46vh;top:auto;bottom:0;transform:none;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
+  .dalur__card{left:0;width:100%;height:auto;min-height:0;max-height:52svh;top:auto;bottom:0;transform:none;justify-content:flex-start;gap:14px;clip-path:polygon(0 0,100% 0,100% calc(100% - 84px),58% calc(100% - 84px),58% 100%,0 100%)}
   .dalur__icon{width:72px;height:72px}
   .dalur__copy{right:auto;left:var(--pad);top:calc(var(--header-h) + var(--spacing));transform:none;width:min(78vw,420px)}
   .ch-map{height:340svh}
-  .map__card{width:88vw;min-height:44vh;left:0;bottom:0}
+  .map__card{width:100%;min-height:0;max-height:46svh;left:0;bottom:0;gap:10px}
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
-  .arch__card{width:88vw;top:auto;bottom:0;max-height:70vh}
+  .arch__card{width:100%;top:auto;bottom:0;max-height:56svh}
   .plan__btn{left:12px;bottom:-16px}
 }
 
@@ -719,7 +719,8 @@ html:not(.no-hover) .btn--square:hover{background:var(--c-ink);color:var(--c-pap
 
 @media (min-width:1440px){:root{--slay:30px;--gg:30px;--head-h:310px;--bookmark-h:130px;--block-static:400px;--logo-offset-y:364px;--header-h:70px}}
 @media (max-width:767.98px){
-  :root{--slay:20px;--gg:10px;--head-h:36svh;--bookmark-h:50px;--block-static:120px;--logo-offset-y:36.5svh}
+  :root{--slay:20px;--gg:10px;--head-h:30svh;--bookmark-h:64px;--block-static:120px;--logo-offset-y:30.5svh}
+  .intro__bookmark{width:min(88vw,420px)}
   .ch-intro{height:320svh}
   .intro__text{left:0;width:100%;top:auto;bottom:34%}
   .intro__text-inner{margin-left:0;width:auto;font-size:var(--fs-small)}
