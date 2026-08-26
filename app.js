@@ -181,8 +181,16 @@ const scroller = (() => {
       setTimeout(() => { s.y = s.target = to; expected = Math.round(to); window.scrollTo(0, to); tween = null; setTimeout(() => ov.classList.remove('is-on'), 80); }, 420);
     } else tweenTo(to, 1000, easeHouse);
   };
-  window.addEventListener('wheel', onWheel, { passive: false });
-  window.addEventListener('keydown', onKey);
+  /* A non-passive wheel listener marks the WHOLE PAGE as a non-fast-scrollable
+     region: the compositor may not scroll on its own, every wheel tick round-trips
+     to the main thread and waits for this handler to return before the page moves.
+     The handler has been a no-op since the hijack was removed, so the page was
+     paying main-thread scrolling for nothing - that is the "delayed/heavy" feel.
+     Register it only if the hijack can ever run. */
+  if (HIJACK_SCROLL) {
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('keydown', onKey);
+  }
   window.addEventListener('scroll', syncExternal, { passive: true });
   const resync = () => { tween = null; s.y = s.target = scrollY; expected = Math.round(s.y); s.moving = false; };
   return Object.assign(s, { tick, setLimit, scrollToEl, tweenTo, wellFactor, resync, get isTweening() { return !!tween; } });
@@ -192,11 +200,17 @@ const scroller = (() => {
 (() => {
   const bar = $('#scrollbar'), thumb = $('.c-scrollbar__thumb', bar);
   let drag = false, startY = 0, startScroll = 0;
+  let hovering = false;
+  bar.addEventListener('pointerenter', () => { hovering = true; });
+  bar.addEventListener('pointerleave', () => { hovering = false; });
+  /* scrollHeight and :hover were read on every frame. scroller.limit already holds
+     the same number, refreshed by setLimit() on measure, and hover is a two-event
+     flag - so the thumb now costs arithmetic instead of a style+layout flush. */
   const update = () => {
-    const total = document.scrollingElement.scrollHeight;
+    const total = scroller.limit + VH;
     const h = Math.max(40, VH * VH / total);
     const hs = h + 'px'; if (hs !== thumb.__h) { thumb.style.height = hs; thumb.__h = hs; }
-    const tr = `translateY(${((scroller.y / (scroller.limit || 1)) * (VH - h)).toFixed(1)}px)` + (bar.matches(':hover') || drag ? ' scaleX(1.45)' : '');
+    const tr = `translateY(${((scroller.y / (scroller.limit || 1)) * (VH - h)).toFixed(1)}px)` + (hovering || drag ? ' scaleX(1.45)' : '');
     if (tr !== thumb.__t) { thumb.style.transform = tr; thumb.__t = tr; }
   };
   thumb.addEventListener('pointerdown', e => { drag = true; startY = e.clientY; startScroll = scroller.y; bar.classList.add('is-dragging'); thumb.setPointerCapture(e.pointerId); e.preventDefault(); });
@@ -223,6 +237,12 @@ const snapUnit = (v, perUnit) => {
 const FRAC_UNIT = /(-?\d*\.\d+)(px|svh)/g;
 const snapPx = s => s.replace(FRAC_UNIT, (m, n, u) =>
   (u === 'px' ? snapUnit(+n, 1) : (VH ? snapUnit(+n, VH / 100) : +n)) + u);
+const TERRACE = mirror => {
+  const d = mdUp() ? [128, 107, 86, 65] : [112, 109, 106, 103];
+  const k = mirror ? [d[3], d[2], d[1], d[0]] : d;
+  return `polygon(0% ${k[0]}svh,25% ${k[0]}svh,25% ${k[1]}svh,50% ${k[1]}svh,50% ${k[2]}svh,75% ${k[2]}svh,75% ${k[3]}svh,100% ${k[3]}svh,100% 100%,0% 100%)`;
+};
+const TERRACE_IN = 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)';
 const PATTERNS = {
   /* generic (inherited) */
   sectionOutTiny: { measure: 'self', keys: el => el.classList.contains('sticky--under-next')
@@ -234,19 +254,25 @@ const PATTERNS = {
   /* likova terrace wipe: the incoming chapter rises under a stepped clip-path whose
      steps land on the grid columns; scrubbed until the chapter top reaches the
      viewport top. Same point count in both keys so mixStr interpolates numerically. */
+  /* The terrace is four grid columns wide and 63svh deep. On a 1440px desktop those
+     columns are 360px and the depth reads as terraces. On a 402pt phone they are
+     ~100px, and the depth means column 1 is fully revealed while column 4 has not
+     started - which reads as four torn blocks floating over black, not as a wipe
+     (observed on an iPhone 17 entering Laugardalurinn). Phones keep the stagger at a
+     fifth of the depth: one stepped edge sweeping up, still terraced, never torn. */
   /* same keyframes as terraceWipe but WITHOUT mobile:true, so the engine drops it on
      phones — for elements where the clip is decoration, not the element's reason to exist */
   terraceWipeDesktop: { measure: 'self', keys: () => [
-      { v: 130, e: 0, p: { 'clip-path': 'polygon(0% 128svh,25% 128svh,25% 107svh,50% 107svh,50% 86svh,75% 86svh,75% 65svh,100% 65svh,100% 100%,0% 100%)' } },
-      { v: 0, e: 0, p: { 'clip-path': 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)' } }],
+      { v: 130, e: 0, p: { 'clip-path': TERRACE(false) } },
+      { v: 0, e: 0, p: { 'clip-path': TERRACE_IN } }],
     clamp: true },
   terraceWipe: { measure: 'self', keys: () => [
-      { v: 130, e: 0, p: { 'clip-path': 'polygon(0% 128svh,25% 128svh,25% 107svh,50% 107svh,50% 86svh,75% 86svh,75% 65svh,100% 65svh,100% 100%,0% 100%)' } },
-      { v: 0, e: 0, p: { 'clip-path': 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)' } }],
+      { v: 130, e: 0, p: { 'clip-path': TERRACE(false) } },
+      { v: 0, e: 0, p: { 'clip-path': TERRACE_IN } }],
     clamp: true, mobile: true },
   terraceWipeMirror: { measure: 'self', keys: () => [
-      { v: 130, e: 0, p: { 'clip-path': 'polygon(0% 65svh,25% 65svh,25% 86svh,50% 86svh,50% 107svh,75% 107svh,75% 128svh,100% 128svh,100% 100%,0% 100%)' } },
-      { v: 0, e: 0, p: { 'clip-path': 'polygon(0% 0svh,25% 0svh,25% 0svh,50% 0svh,50% 0svh,75% 0svh,75% 0svh,100% 0svh,100% 100%,0% 100%)' } }],
+      { v: 130, e: 0, p: { 'clip-path': TERRACE(true) } },
+      { v: 0, e: 0, p: { 'clip-path': TERRACE_IN } }],
     clamp: true, mobile: true },
 
   /* intro — likova keyframes verbatim */
@@ -659,7 +685,16 @@ const header = (() => {
   let collapsed = false;
   const sections = $$('[data-themed]');
   let ranges = [];
-  const measure = () => { ranges = sections.map(s => ({ top: docTop(s), bottom: docTop(s) + s.offsetHeight, cls: s.dataset.themed })); };
+  let hH = 0;
+  const measure = () => {
+    ranges = sections.map(s => ({ top: docTop(s), bottom: docTop(s) + s.offsetHeight, cls: s.dataset.themed }));
+    /* measured with the collapse OFF, so the collapse cannot feed back into its own
+       threshold and oscillate around the edge. */
+    const was = h.classList.contains('header--collapsed');
+    if (was) h.classList.remove('header--collapsed');
+    hH = h.offsetHeight || 50;
+    if (was) h.classList.add('header--collapsed');
+  };
   let lastCls = '';
   const tick = y => {
     const line = y + 30;
@@ -678,7 +713,7 @@ const header = (() => {
        colour while the landing is at the top, so it reads as one continuous plate. */
     html.classList.toggle('at-top', y <= 10);
     /* likova stickyHeader, scrollOffset:"screen" — collapse once past one screen */
-    const edge = VH - h.offsetHeight;
+    const edge = VH - hH;
     if (!collapsed && y > edge) { collapsed = true; h.classList.add('header--collapsed'); }
     else if (collapsed && y < edge - 40) { collapsed = false; h.classList.remove('header--collapsed'); }
   };
@@ -1326,14 +1361,29 @@ const syncSmooth = () => {
    the same. A rebuild is only needed when the BREAKPOINT could have changed;
    a height-only change just needs fresh measurements. */
 let lastW = innerWidth, lastH = innerHeight;
+let needsRebuild = false;
 const onResize = () => {
-  clearTimeout(resizeT);
   const w = innerWidth, h = innerHeight;
   const widthChanged = w !== lastW;
   const bigHeightChange = Math.abs(h - lastH) > lastH * 0.25;
+  /* On a phone the URL bar collapsing fires resize CONTINUOUSLY while you scroll
+     (measured: a different innerHeight on all 271 moving frames of one flick), and
+     so does the keyboard opening. Nothing on the page is sized in dvh any more, so
+     a height-only change cannot alter a single measurement - re-measuring on it
+     just burns a layout pass the moment the finger lifts. Orientation and split view
+     both change the width, so they still come through. Checked BEFORE the timer is
+     touched: clearing it and returning would silently drop a rebuild that a real
+     resize had already queued. */
+  if (!widthChanged && !bigHeightChange && matchMedia('(pointer: coarse)').matches) return;
   lastW = w; lastH = h;
+  /* The flag has to OUTLIVE the individual event. A rotation is followed by more
+     resize events whose own deltas are zero, and reading the flags off the last
+     event downgraded the queued rebuild to a measure-only pass. */
+  needsRebuild = needsRebuild || widthChanged || bigHeightChange;
+  clearTimeout(resizeT);
   resizeT = setTimeout(() => {
-    if (widthChanged || bigHeightChange) { syncSmooth(); parallax.build(); }
+    if (needsRebuild) { syncSmooth(); parallax.build(); }
+    needsRebuild = false;
     measureAll();
   }, 120);
 };

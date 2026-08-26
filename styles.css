@@ -216,7 +216,17 @@ html.with-modal .c-scrollbar{display:none}
    ============================================================ */
 .section{position:relative;display:flow-root}   /* flow-root: negative-margin stickies must not collapse through */
 .sticky{position:relative;display:grid;grid-template-columns:minmax(0,1fr);height:100%}  /* minmax(0,1fr): an auto column sizes to max-content; height:100% — the sticky needs the CHAPTER height or the layer never pins (Holt lore) */
-.sticky__layer{position:sticky;top:0;height:100svh;height:100dvh;min-width:0;overflow:hidden}
+/* svh, NOT dvh. dvh tracks the iOS URL bar, which collapses CONTINUOUSLY while
+   you scroll - measured on an iPhone 17: innerHeight swept 714 -> 751+ and every
+   single one of 271 moving frames saw a different value. Every pinned chapter on
+   the page therefore re-laid out on every frame of every scroll, which is the
+   "buggy/delayed/weird" feel. Desktop Chrome has no collapsing URL bar, so dvh is
+   constant there and no headless harness could ever see this. svh is the smallest
+   viewport height and never changes, so the layer is laid out once.
+   100lvh is also constant and would leave no strip under a collapsed URL bar, but
+   it overhangs the SHOWN bar by the same 40px: an on-device sweep at vv=714 found
+   it cutting 39px off an .arrow and 20px off a .btn, so it is not an option. */
+.sticky__layer{position:sticky;top:0;height:100svh;min-width:0;overflow:hidden}
 .px{padding-left:var(--pad);padding-right:var(--pad)}
 .section--wipe{margin-top:-100svh;z-index:2;will-change:clip-path}
 .bg-media{position:absolute;inset:0;overflow:hidden}
