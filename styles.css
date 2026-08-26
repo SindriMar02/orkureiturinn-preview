@@ -561,9 +561,10 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .mapx__sheet{transform:scale(1.06)}
   /* 2 columns and shorter cards: one column of 9 full-height cards was ~3000px of
      dead scroll on a phone */
-  .ugrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-left:var(--pad);margin-right:var(--pad)}
   .ucard{min-height:0}
   .ucard__plan{aspect-ratio:1/1}
+  .ucard__head{gap:2px}
+  .ucard__head i{font-size:9px}
   /* the photo must sit ABOVE the tabs, or tapping a line changes something the
      visitor cannot see and the section reads as dead */
   .lines__wrap{display:flex;flex-direction:column}
@@ -679,7 +680,7 @@ html:not(.no-hover) .ucard:not(.ucard--off):hover .ucard__foot{background:var(--
 .sel__sort{display:flex;flex-direction:column;gap:10px}
 .sel__sort select{font:inherit;text-transform:uppercase;letter-spacing:.06em;font-size:13px;padding:8px 12px;border:1px solid var(--hair-light);background:#fbfaf9;color:var(--c-text-dark)}
 @media (max-width:767.98px){
-  .ugrid{grid-template-columns:minmax(0,1fr)}
+  .ugrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .sel__range{min-width:100%}
   .kerfi__panel{bottom:42%}
   .kerfi__copy{top:calc(58% + var(--spacing) * 1.6)}
