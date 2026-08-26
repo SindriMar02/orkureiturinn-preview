@@ -959,4 +959,7 @@ html:not(.no-hover) .lstat:hover .t-smoke,html:not(.no-hover) .kaup__card:hover 
   /* end the map above the opaque card instead of behind it, so the ORKUREITURINN
      pin is not covered and the sheet centres on the visible area */
   .mapx{inset:0 0 36svh 0}
+  /* "LANDSLAGSARKITEKTÚR" is long enough that its tracking pushed it past the card
+     edge in the 2-up team grid */
+  .team__card .t-label{font-size:9px;letter-spacing:.05em}
 }
