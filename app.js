@@ -7,6 +7,7 @@
    bug lore intact: matchMedia breakpoints, device-pixel scroll snap, rect-check
    reveals, armed-then-run transitions. No WebGL in this build. */
 
+const ASSET_V = '?v=4081c10e';  /* deploy.sh rewrites this to '?v=<hash>' */
 const html = document.documentElement;
 /* Safari restores the previous scroll position when a visitor returns to the same URL,
    so the page came up mid-hero — "it lands like it's been swiped down". The preloader
@@ -570,8 +571,12 @@ const media = (() => {
   const imgs = $$('img[data-img]');
   imgs.forEach(img => {
     const name = img.dataset.img, ws = img.dataset.w.split(/\s+/).map(Number);
-    img.dataset.srcset = ws.map(w => `assets/img/${name}@${w}.webp ${w}w`).join(', ');
-    img.dataset.src = `assets/img/${name}@${ws[Math.min(1, ws.length - 1)]}.webp`;
+    /* Image URLs are built here at runtime, so they never carried the deploy's cache
+       hash the way styles.css/app.js do — a visitor who had already loaded the site
+       kept the OLD picture forever even after it was replaced. ASSET_V is rewritten
+       by deploy.sh with a hash of assets/img. */
+    img.dataset.srcset = ws.map(w => `assets/img/${name}@${w}.webp${ASSET_V} ${w}w`).join(', ');
+    img.dataset.src = `assets/img/${name}@${ws[Math.min(1, ws.length - 1)]}.webp${ASSET_V}`;
     img.loading = 'lazy'; img.decoding = 'async';
     if (!img.sizes) img.sizes = img.closest('.reitur__pair, .ucard, .lines__stagebox, .arch__card figure, .team__card') ? '50vw' : '100vw';
   });
