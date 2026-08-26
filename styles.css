@@ -552,6 +552,11 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
   .dalur__copy{right:auto;left:var(--pad);top:calc(var(--header-h) + var(--spacing));transform:none;width:min(78vw,420px)}
   .ch-map{height:340svh}
   .map__card{width:100%;min-height:0;max-height:46svh;left:0;bottom:0;gap:10px}
+  /* The map sheet is a 2048x1280 box sized by WIDTH, which on a portrait phone is
+     402x251 inside a 714px-tall pinned layer — hence the dark bands above and below
+     it. Size it by HEIGHT here so it always covers; the extra width is clipped by
+     .mapx's overflow and the pan percentages stay relative to the box. */
+  .mapx__box{width:auto;height:100%;min-width:100%}
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
   .arch__card{width:100%;top:auto;bottom:0;max-height:56svh}
   .plan__btn{left:12px;bottom:-16px}
