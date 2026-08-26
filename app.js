@@ -671,6 +671,11 @@ const header = (() => {
       h.classList.add(...cur.cls.split(/\s+/)); lastCls = cur.cls;
     }
     h.classList.toggle('header--top', y <= 10);
+    /* The awning is a solid INK strip (mobile-chrome-standard), which assumes a dark
+       page top. This hero opens on a CREAM plate, so the ink read as a dark bar sitting
+       above the plate — "the white header lands below". Let the awning take the plate's
+       colour while the landing is at the top, so it reads as one continuous plate. */
+    html.classList.toggle('at-top', y <= 10);
     /* likova stickyHeader, scrollOffset:"screen" — collapse once past one screen */
     const edge = VH - h.offsetHeight;
     if (!collapsed && y > edge) { collapsed = true; h.classList.add('header--collapsed'); }
