@@ -529,7 +529,7 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
 .plan__card .phase{width:44px;height:44px;font-size:13px}
 
 /* arch: facts slider (ink, bottom-left, mid-pin) + gated architect card */
-.arch__facts{position:absolute;left:var(--pad);bottom:calc(var(--spacing) * 1.2);z-index:3;background:var(--c-ink);color:var(--c-paper);width:min(31.5vw,420px);min-height:280px;padding:calc(var(--spacing) * .9);display:flex;flex-direction:column;justify-content:space-between;gap:14px;opacity:0;transform:translateY(4svh);transition:opacity .5s var(--ease-house),transform .5s var(--ease-house);pointer-events:none}
+.arch__facts{position:absolute;right:var(--pad);left:auto;bottom:calc(var(--spacing) * 1.2);z-index:3;background:var(--c-ink);color:var(--c-paper);width:min(31.5vw,420px);min-height:280px;padding:calc(var(--spacing) * .9);display:flex;flex-direction:column;justify-content:space-between;gap:14px;opacity:0;transform:translateY(4svh);transition:opacity .5s var(--ease-house),transform .5s var(--ease-house);pointer-events:none}
 .arch__facts.is-on{opacity:1;transform:none;pointer-events:auto}
 .arch__fact{max-width:100%;transition:opacity .25s var(--ease-house)}
 .arch__facts.is-swapping .arch__fact{opacity:0}
@@ -587,7 +587,8 @@ html:not(.no-hover) .team__card:hover .team__plus{background:var(--c-paper);colo
     .arch__facts{width:82vw;min-height:0;bottom:0;left:0}
   /* had left:var(--pad) AND width:100%, so it overflowed the right edge by exactly the
      padding and read as off-centre */
-  .arch__card{left:0;right:0;width:auto;top:calc(var(--header-h) + 8px);bottom:auto;max-height:44svh;overflow:auto}
+  .arch__card{left:0;right:0;width:auto;top:calc(var(--header-h) + 8px);bottom:auto;max-height:50svh;overflow:auto;padding-bottom:calc(var(--spacing) * 1.4)}
+  .arch__facts{left:0;right:0}
   /* 44pt minimum tap target for the beat arrows */
   .arrow--sm{width:44px;height:44px}
   .arch__card figure{width:44%}
